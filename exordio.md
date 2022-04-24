@@ -226,7 +226,7 @@ El 23/4/22, Carlos Santomé Ordal <carlos@gmail.com> escribió:
 > El vie, 22 abr 2022 a las 20:23, Álex S (<alex@mail.com>)
 > escribió:
 >
->> Hola Amadeo, y Compañía,
+>> Hola Carlos, y Compañía,
 >>
 >> Te envío una crónica narrada de tu partida. Así, improvisada a vuela
 >> pluma.
