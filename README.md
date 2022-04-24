@@ -1,3 +1,6 @@
+[Repositorio con material para un Trabajo Final de Grado. Todas las referencias software/hardware deben ser entendidas como teóricas o de ámbito experimental; bien no existentes o bien esbozadas]. 
+[Experimental use only].
+
 # je20
 **Jardín Edén Dos Punto Cero** je20, es un addOn para RPi como HotSpot. Provee funcionalidad para la **gestión de civilizaciones bot**.
 
