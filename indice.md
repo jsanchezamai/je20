@@ -1,4 +1,7 @@
 
+DISEÑO DORSO DEL LIBRO
+![](BOOK_BACK.png)
+
 # Álex.
 Tarde de verano. Islas Canarias.
 
