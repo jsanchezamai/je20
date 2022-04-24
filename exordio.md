@@ -15,7 +15,7 @@ La visita del enlace que le pongo es free (gratis y público) y se efectúa en u
 
 Se autoexplica.
 
-https://github.com/jsanchezamai/je20/blob/main/diario.md
+Abajo le pongo el enlace y el grafismo de portada.
 
 Así, me sentía en deuda, y, creo, lo que esta obrita pretende, es la diana de un camino de mi corazón, como un obsequio para el que considero ha sido mi no-maestro capaz de enseñarme en la meseta de la España que hiela corazones y, también, teleológico discípulo, en la distancia del autor/espectador, sin, ¡jamás! traspasar la cuarta pared, maestro capaz volarme al beat occidental o al karma oriental; por citar dos de los grandes fuegos de redes culturales. 
 
@@ -86,6 +86,11 @@ No adelanto más, don Fernando. Ya dejo de intentar vender mi obra. ;-DDDDDD
 Lo dicho, ahí quedan esos cuatro capitulillos que le enlazo para lectura, ¡lujuriosa!
 
 Álex
+
+https://github.com/jsanchezamai/je20/blob/main/diario.md
+
+[PORTADA DEL LIBRO]
+![](BOOK_FRONT.png)
 
 
 ---------- Forwarded message ----------  
