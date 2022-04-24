@@ -254,11 +254,11 @@ El 23/4/22, Carlos Santomé Ordal <carlos@gmail.com> escribió:
 >>
 >> He dicho.
 >>
->> ---------- Forwarded message ----------
->> From: Álex S <alex@mail.com>
->> Date: Fri, 22 Apr 2022 15:48:38 +0200
->> Subject: Re: 1a partida federado
->> To: Carlos Santomé Ordal <carlos@gmail.com>
+ ---------- Forwarded message ----------      
+From: Álex S <alex@mail.com>.   
+Date: Fri, 22 Apr 2022 15:48:38 +0200.   
+Subject: Re: 1a partida federado.   
+To: Carlos Santomé Ordal <carlos@gmail.com>.   
 >>
 >> jajajaa, esa huella o cicatriz valdrá su peso en oro dentro de un
 >> tiempo!!!!! ¡¡Guarda bien la hojilla!! :-D
