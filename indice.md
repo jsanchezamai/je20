@@ -2,7 +2,7 @@
 # Álex.
 Tarde de verano. Islas Canarias.
 
-    El cuaderno "Y se hizo la luz, dos punto cero" que subtitula "O de un génesis del reino digital" es la entrega número cuatro una serie total de ocho cuadernos conformantes del trabajo final de carrera del aspirante Álex Santomé. Fue escrito durante y mediante el segundo cuatrimestre de 2022.
+El cuaderno "Y se hizo la luz, dos punto cero" que subtitula "O de un génesis del reino digital" es la entrega número cuatro una serie total de ocho cuadernos conformantes del trabajo final de carrera del aspirante Álex Santomé. Fue escrito durante y mediante el segundo cuatrimestre de 2022.
 
 ## Martín Santomé.
 
@@ -20,9 +20,9 @@ Marie acaba de pedir teleconferencia. Álex la rechaza.
 
 En la imagen, cuarto cuaderno de la serie. Cuatro ramas:
 
-    La rama uno que pertenece al Aleph Hardware junto con la rama dos que pertenece al Aleph Software, al acoplarse, dos hemisferios, abajo y arriba, forjan una escena liminar, que conecta dos dimensiones distintas, la física y la digital. Una esfera de "proceso" compuesta de un reloj que, infinito, dispara "instrucciones". Compuesta de una "memoria" capa de guardar a parte de "instrucciones", también, "datos" digitales. Parangón del cerebro: una Placa Madre como sostén de la materia gris y una Unidad de Control de Proceso como mente.
+La rama uno que pertenece al Aleph Hardware junto con la rama dos que pertenece al Aleph Software, al acoplarse, dos hemisferios, abajo y arriba, forjan una escena liminar, que conecta dos dimensiones distintas, la física y la digital. Una esfera de "proceso" compuesta de un reloj que, infinito, dispara "instrucciones". Compuesta de una "memoria" capa de guardar a parte de "instrucciones", también, "datos" digitales. Parangón del cerebro: una Placa Madre como sostén de la materia gris y una Unidad de Control de Proceso como mente.
 
-    Las últimas dos ramas están hermanadas como, hijos de Rea, Hades y Poseidón. Estrictamente lógicas, subconjuntos de Aleph Software, una habla del "dato" y de su "tipo" y de su "estructura"; mientras que la otra habla del "objeto" y de su "programación".
+Las últimas dos ramas están hermanadas como, hijos de Rea, Hades y Poseidón. Estrictamente lógicas, subconjuntos de Aleph Software, una habla del "dato" y de su "tipo" y de su "estructura"; mientras que la otra habla del "objeto" y de su "programación".
 
 
 # Reunión 1 IC2.
