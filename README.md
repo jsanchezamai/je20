@@ -21,7 +21,7 @@ Funcionalidad encapsulada a la Manzana mordida, es decir, a la "semilla de mundo
 Funcionalidad para la congelación de mundos. Comunmente, para **pasar del estado CAIDA al estado JARDIN, y cerrar el mundo**. Se archivará la memoria persistente y se deshechará la memoria volátil. Para este fin, se enviará un bot al mundo que pregonará un esquema o moral y hará por llevar la palabra a todos los bots del mundo para que se haga ese reino con las instrucciones para la congelación, estableciendo un punto final de cierre que incluye un juicio para **valorar si la carga semántica del bot debe ser archivada o deshechada por el colector de basura**.
 
 ## Características bot: forma y significado.  
-Los bots nacen con **memoria** vacía; pueden ampliarla tamaño y modificar contenido. **Kernel Core State Machine**.
+Los bots nacen con **memoria** vacía; pueden ampliarla tamaño y modificar contenido.
 
 Los bots nacen con **frecuencia de reloj** (evento update) diaria, un ciclo cada 24 horas; pueden reducir la frecuencia; pueden correr más de un reloj. La memoria y el reloj se alojan en un centro motor o Kernel.
 
@@ -50,7 +50,7 @@ Produce bots con capacidad de "evangelizar" a otros.
 
 
 ### Kernel / Sensores / Actuadores / UI
-Un bot, ** Kernel Core Bot** está formado principalmente a partir de un **Kernel Core BIOS** donde corre su reloj y se mantiene su memoria.
+Un bot, **Kernel Core Bot** está formado principalmente a partir de un **Kernel Core BIOS** donde corre su reloj y se mantiene su memoria.
 
 Adán y Eva tienen acceso root a la máquina virtual. Esta máquina virtual, ejecutándose en hub HotSpot Portal Captivo, proveerá de input según configuración (fuera del alcance del proyecto). Se recomienda uso de kits como https://wiki.seeedstudio.com/Grove-Beginner-Kit-For-Arduino.
 
@@ -100,14 +100,11 @@ Bot main process handler for its soul.
 - [5% done] Kernel Core Bot State Machine: https://gitlab.com/ox/states-machine-browser-poc
 A memory engine based on treeable state snapshots.
 
-- [5% done] Kernel Core Bot Moral Builder: https://gitlab.com/elmas-v0/alexa-poc-amaisys
-A memory engine based on treeable state snapshots.
-
 - [5% done] Kernel Core Bot 2D UI Builder: https://github.com/martinsantome/simulator-lab
 A scene editor framework to build a 2D body for the bot.
 
 - [5% done] **Kernel Core Bot**: https://gitlab.com/ox/bit-2021-automatas-aleph/-/blob/main/Automatas.md
-Main version-alph bundle definition for entity Bot. Configurable, Customizable, Runnable, Pausable, Disposable.
+Main version-alph bundle definition for entity Bot. Configurable, Customizable, Runnable, Interactuable, Pausable, Disposable.
 
 
 ## World definition
@@ -120,9 +117,6 @@ A local/public task queue and status message network.
 
 - [90% done ] Kernel Core World Economic System: https://gitlab.com/ox/mwpw_f
 Plugin to configure external client with a parsed non-crypto wallet system to interact with bots.
-
-- [4% done] Kernel Core World Index: https://gitlab.com/ox/ox_yowsup
-Plugin to mantain an index of existing living bots and to manage a call stablishment with them.
 
 - [4% done] Kernel Core World Index: https://gitlab.com/ox/ox_yowsup
 Plugin to mantain an index of existing living bots and to manage a call stablishment with them.
