@@ -88,11 +88,11 @@ Lo dicho, ahí quedan esos cuatro capitulillos que le enlazo para lectura, ¡luj
 Álex
 
 
----------- Forwarded message ----------
-From: Álex S <alex@mail.com>
-Date: Sun, 24 Apr 2022 13:17:31 +0200
-Subject: Re: 1a partida federado
-To: Carlos Santomé Ordal <carlos@gmail.com>
+---------- Forwarded message ----------  
+From: Álex S <alex@mail.com>  
+Date: Sun, 24 Apr 2022 13:17:31 +0200  
+Subject: Re: 1a partida federado  
+To: Carlos Santomé Ordal <carlos@gmail.com>  
 
 Buenas!!
 
