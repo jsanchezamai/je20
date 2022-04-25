@@ -166,8 +166,8 @@ electrodomésticos que irán llegando en las próximas ornadas de
 digitalización a los hogares. Electrodomésticos que ya alguno recibe
 el pomposo nombre de "robot" como el de la Moulinex, aunque no importe
 la marca comercial, y pronto, según Elon Musk, estarán disponibles en
-formato roto de competi, en concesionarios, con un precio de venta
-estimado, menor que el de un coche. Desde la domótica básica de luces,
+formato robot de competi en concesionarios, con un precio de venta
+estimado menor que el de un coche. Desde la domótica básica de luces,
 clima y multimedia (esto ya presente en algunos hogares) hasta
 complejas escenas lúdicas o industriales o educativas. La idea es que
 en una habitación hay unos humanos usando esta app para, a su vez,
