@@ -17,9 +17,9 @@ Se autoexplica.
 
 Abajo le pongo el enlace y el grafismo de portada.
 
-Así, me sentía en deuda, y, creo, lo que esta obrita pretende, es la diana de un camino de mi corazón, como un obsequio para el que considero ha sido mi no-maestro capaz de enseñarme en la meseta de la España que hiela corazones y, también, teleológico discípulo, en la distancia del autor/espectador, sin, ¡jamás! traspasar la cuarta pared, maestro capaz volarme al beat occidental o al karma oriental; por citar dos de los grandes fuegos de redes culturales. 
+Así, me sentía en deuda, y, creo, lo que esta obrita pretende, es la diana de un camino de mi corazón, como un obsequio para el que considero ha sido mi no-maestro capaz de enseñarme en la meseta de la España que hiela corazones y, también, teleológico discípulo, en la distancia del autor/espectador, sin, ¡jamás! traspasar la cuarta pared, maestro capaz de volarme al beat occidental o al karma oriental; por citar dos de los grandes fuegos de redes culturales. 
 
-Fernando, aquí tiene, en apenas embrión, storyboard, guión germinal, tras el enlace que le indico, en formato texto plano, los bocetos para "la novela que NO querrías leer; pero que no puedes evitar leer". :-D Carita sorriente. 
+Fernando, aquí tiene, en apenas embrión, storyboard, guión germinal, tras el enlace que le indico, en formato texto plano, los bocetos para "la novela que NO querrías leer; pero que no puedes evitar leer". :-D Carita sonrriente. 
 
 Tras el enlace que adjunto, si el editor quiere, esto que presento, ya merece un adelanto; y reservar hueco en librerías. 
 
@@ -37,9 +37,9 @@ Si, en el eterno intento de emular al maestro, quisiera emular el levantar una c
 
 Como escritor, odio escribir de estos temas.
 
-Doy fe que mis abuelos son uno del bando nacional y otro de los que salieron Almería arriba en la estampá, y que, aún y lo roto de la España de guerra civil, prefiero eso a lo de la Aldea Global.
+Doy fe que mis abuelos son uno del bando nacional y otro de los que salieron Almería arriba en la espantá, y que, aún y lo roto de la España de guerra civil, y lo que duele, y lo eterno de su problema, prefiero eso a lo de la Aldea Global.
 
-Igual, lo mismo, ¿acaso ya se agotaron los ríos espirituales de oriente, ya se murió del todo el latín y el griego? ¿Por qué hablar de Información como la magia de las magias o de una magia de magias? Etcétera...
+Igual, lo mismo, ¿acaso ya se agotaron los ríos espirituales de oriente, ya se murieron del todo el latín y el griego? ¿Por qué hablar de Información como la magia de las magias o de una magia de magias? Etcétera...
 
 Como escritor, la Aldea Global y la Información, me vienen dadas y no son evitables.
 
@@ -51,7 +51,7 @@ La obra que traigo es escandalosamente escatológica y obscena, de inevitable, y
 
 Efectivamente, a modo de exordio, ¡dígase si no levanta clickbait!: un computólogo nacido en el 78 comprende lo de la Transición entre formas de insuflar un pueblo. 
 
-Toma como no-maestro (Nietzsche es el maestro y Jung el biógrafo) a un españolito a caballo las dos Españas del 36 comprende lo de la Transición entre formas de insuflar.
+Toma como no-maestro (Nietzsche es el maestro y Jung el biógrafo) a un españolito a caballo de las dos Españas del 36 comprende lo de la Transición entre formas de insuflar.
 
 Y, pluma en mano, a tres décadas del ego incipiente, cúlmen de un proceso de iniciación informático tecnológico, tensa el arco, apunta la flecha y... deja cabo abierto para segunda parte... una idea para un segundo libro ajeno e independiente de este (el de presentación) el primero de la saga del "El Camino del Corazón" de este españolito que hoy te escribe, don Fernando.
 
@@ -65,7 +65,7 @@ Una actualización y reflote de una unidad de destino en lo universal con ónfal
 
 Pero bueno, siempre le leí que era conveniente llevar varias pelotas en el aire. Esto de la España 2.0 me tiene también entretenido. 
 
-Parece que en cuarenta años de País (me refiero a los cuarenta y cuatro en que he vivido [por mor que Español vivo] en él) ha ocurrido un bigban democrático monopolar en Suarez; bipolar en PPPSOE; y ahora desguarrinjado de la alternancia de Cánovas.
+Parece que en cuarenta años de País (me refiero a los cuarenta y cuatro en que he vivido [por mor que Español vivo] en él) ha ocurrido un bigbang democrático monopolar en Suarez; bipolar en PPPSOE; y ahora desguarrinjado de la alternancia de Cánovas.
 
 Una España 2.0 que sea de centro y a la que quieran venir a jugar tanto los hijos de Abascal como los de Iglesias. Tú sabes, en las cosas virtuales quienes entran dejan sus mochilas en los vestuarios y solo cargan en su disfraz lo que les conviene; esto es, el avatar no es una copia exacta del usuario sino solo una mera careta.
 
@@ -73,7 +73,7 @@ El argumento de este otro libro, que sería posterior, vendría a estribar un qu
 
 Efectivamente, la España 2.0 pretende ser una novela de no ficción que prueba de trazar caminos en un laberinto, recorrer y marcar algunas salidas y algunos tramos angostos de una capa o de un subconjunto o de uno de los cuerpos de España en la segunda década del segundo milenio. 
 
-Recorrer un laberinto, esta vez, menos conformado en texturas griegas de hace dos milenios y medio sino conformado artificial hasta la hez. 
+Recorrer un laberinto, esta vez, menos conformado en texturas helenas de hace dos milenios y medio sino conformado artificial hasta la hez. 
 
 Artificial de cabo a rabo. 
 
