@@ -11,8 +11,8 @@ For narrative purposes, 2 equivalent versions are released: english/spanish theo
 
 Bajo la temática teo-antro-informática, el ensayo intentará encontrar las relaciones entre la creación teológica, como ideación fundamental en una dimensión lógica; la creación antropológica, como instancia de aquella ideación en una dimensión física; y la creación informática, como intento de copia en una dimensión virtual. Dado este último punto, el formato del ensayo extiende la forma clásica de texto con una capa ejecutable como programa informático.
 
-- Read the [Essay](./kernel/dist/web/index.html).
-- Read introduction and download at [Essay::README](./kernel/README.md).
+- Read the [Essay](./dist/web/index.html).
+- Read introduction and download at [Essay::README](./README.md).
 - Browse trinity code at [Essay::Código](https://github.com/jsanchezamai/je20/tree/main/kernel/src/web/trinity).
 
 <hr>
@@ -30,6 +30,6 @@ A efectos narrativos, se publican 2 versiones equivalentes: mapas teológicos in
 
 Bajo la temática teo-antro-informática, el ensayo intentará encontrar las relaciones entre la creación teológica, como ideación fundamental en una dimensión lógica; la creación antropológica, como instancia de aquella ideación en una dimensión física; y la creación informática, como intento de copia en una dimensión virtual. Dado este último punto, el formato del ensayo extiende la forma clásica de texto con una capa ejecutable como programa informático.
 
-- Puedes leerlo en [Ensayo](./kernel/dist/web/index.html).
-- Puedes leer una presentación y descargarla en [Ensayo::README](./kernel/README.md).
+- Puedes leerlo en [Ensayo](./dist/web/index.html).
+- Puedes leer una presentación y descargarla en [Ensayo::README](./README.md).
 - Puedes explorar su código en [Ensayo::Código](https://github.com/jsanchezamai/je20/tree/main/kernel/src/web/trinity).
