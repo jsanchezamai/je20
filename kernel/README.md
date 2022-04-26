@@ -13,7 +13,7 @@ Bajo la temática teo-antro-informática, el ensayo intentará encontrar las rel
 
 - Read the [Essay](./kernel/dist/web/index.html).
 - Read introduction and download at [Essay::README](./kernel/README.md).
-- Browse code at [Essay::Código](./kernel/src/web/trinity).
+- Browse trinity code at [Essay::Código](https://github.com/jsanchezamai/je20/tree/main/kernel/src/web/trinity).
 
 <hr>
 
@@ -32,4 +32,4 @@ Bajo la temática teo-antro-informática, el ensayo intentará encontrar las rel
 
 - Puedes leerlo en [Ensayo](./kernel/dist/web/index.html).
 - Puedes leer una presentación y descargarla en [Ensayo::README](./kernel/README.md).
-- Puedes explorar su código en [Ensayo::Código](./kernel/src/web/trinity).
+- Puedes explorar su código en [Ensayo::Código](https://github.com/jsanchezamai/je20/tree/main/kernel/src/web/trinity).
