@@ -1,37 +1,16 @@
-## Welcome to GitHub Pages
+# Este sitio es...
 
-You can use the [editor on GitHub](https://github.com/jsanchezamai/je20/edit/main/docs/index.md) to maintain and preview the content for your website in Markdown files.
+## ... una novela
+- Puedes leer su prólogo en [Libro::Exordio](../exordio.md).
+- Puedes leer un resumen en [Libro::Índice](../indice.md).
+- Puedes leerla en [Libro](../diario.md).
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## ... un aplicativo
 
-### Markdown
+- Puedes leer una presentación y descargarla en [App](../README.md).
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## ... un ensayo ejecutable 
+Bajo la temática teo-antro-informática, el ensayo intentará encontrar las relaciones entre la creación teológica, como ideación fundamental en una dimensión lógica; la creación antropológica, como instancia de aquella ideación en una dimensión física; y la creación informática, como intento de copia en una dimensión virtual. Dado este último punto, el formato del ensayo extiende la forma clásica de texto con una capa ejecutable como programa informático.
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/jsanchezamai/je20/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+- Puedes leerlo en [Ensayo](../kernel/dist/web/index.html).
+- Puedes explorar su código en [Ensayo::Código](../kernel/src/web/trinity).
