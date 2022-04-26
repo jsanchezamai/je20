@@ -18,3 +18,8 @@ Bajo la temática teo-antro-informática, el ensayo intentará encontrar las rel
 - Puedes leerlo en [Ensayo](./kernel/dist/web/index.html).
 - Puedes leer una presentación y descargarla en [Ensayo::README](./kernel/README.md).
 - Puedes explorar su código en [Ensayo::Código](./kernel/src/web/trinity).
+
+# Participación
+El proyecto es abierto y acepta cualquier tipo de colaboración. Visita [je20::Foro](https://github.com/jsanchezamai/je20/discussions/1#discussion-4036122).
+
+

@@ -140,3 +140,6 @@ Special bot for world handling. Acts as network-domain-server bot. It holds the 
 
 - [0% done] Kernel Core Docs: https://github.com/martinsantome/la-edad-red
 Main dev docs repository.
+
+# Project
+This project is open and suitable for pull requests. See [je20::Discussions](https://github.com/jsanchezamai/je20/discussions/1#discussion-4036122).
