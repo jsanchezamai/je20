@@ -10,7 +10,7 @@ Novela corta de ficción sobre las TICs y los NFTs.
 ## ... un aplicativo
 Sistema operativo para aldeas provincia de la Aldea Global. Provee funcionalidad para la gestión de civilizaciones de bots para uso tanto lúdico, como doméstico, como industrial, como pedagógico.
 
-- Puedes leer una presentación y descargarla en [JE20::README](./README.md).
+- Puedes leer una presentación y descargarla en [JE20::README](https://github.com/jsanchezamai/je20).
 
 ## ... un ensayo ejecutable 
 Bajo la temática teo-antro-informática, el ensayo intentará encontrar las relaciones entre la creación teológica, como ideación fundamental en una dimensión lógica; la creación antropológica, como instancia de aquella ideación en una dimensión física; y la creación informática, como intento de copia en una dimensión virtual. Dado este último punto, el formato del ensayo extiende la forma clásica de texto con una capa ejecutable como programa informático.
