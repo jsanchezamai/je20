@@ -55,7 +55,7 @@ export namespace IASimbolica {
 
     fiaSimbolica.nombre = "FIA Simbolica";
     fiaSimbolica.razona =
-        (w: Mundo, i: Intencion) => {
+        (m: Mundo, i: Intencion) => {
         return "No";
     }
 

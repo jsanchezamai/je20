@@ -1,8 +1,9 @@
 
 import { FIA, GenesisBlock } from "./genesis-block";
-import { loadCiencia } from "./paradigmas/cientifica/indice";
+import { loadCientifica } from "./paradigmas/cientifica/indice";
 import { loadSimbolica } from "./paradigmas/simbolica/indice";
 import { loadSituada } from "./paradigmas/situada/indice";
+import { loadConexionista } from "./paradigmas/conexionista/indice";
 
 console.log("Iniciando el modelizador de Fundamentos de inteligencia artificial. v1...");
 
@@ -17,8 +18,9 @@ console.log("\t\t - Carga de la instancia génesis:", gb.nombre);
 
 console.log("\n", "\t - Hechos raíz:");
 
-loadCiencia();
+loadCientifica();
 loadSimbolica();
 loadSituada();
+loadConexionista();
 
 console.log("\n", "\t - Aplicación finalizada");

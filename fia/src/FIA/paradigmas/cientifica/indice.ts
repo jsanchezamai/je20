@@ -3,7 +3,7 @@ import { IACientifica } from "./paradigma";
 
 const tester = new TuringTester();
 
-export const loadCiencia = () => {
+export const loadCientifica = () => {
 
     console.log("\t\t - Tipos de inteligencia #1:");
     console.log("\t\t\t tester> ¿Eres o podrías ser humana?");
