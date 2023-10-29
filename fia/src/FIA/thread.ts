@@ -4,6 +4,19 @@ import { loadCientifica } from "./paradigmas/cientifica/indice";
 import { loadSimbolica } from "./paradigmas/simbolica/indice";
 import { loadSituada } from "./paradigmas/situada/indice";
 import { loadConexionista } from "./paradigmas/conexionista/indice";
+import { Menu } from "./menu";
+
+
+const m = new Menu(
+    ["- ¡¡Listo para interactuar, humanos!!!",
+    "- Not today, close, please, bye!"]
+);
+
+m.run().then(
+    (value: { selectedItem: string; text: string }) => {
+    console.log(value);
+    }
+);
 
 console.log("Iniciando el modelizador de Fundamentos de inteligencia artificial. v1...");
 
@@ -23,4 +36,8 @@ loadSimbolica();
 loadSituada();
 loadConexionista();
 
-console.log("\n", "\t - Aplicación finalizada");
+console.log("\n", "\t - El sistema inteligente ha sido cargado!");
+
+
+
+

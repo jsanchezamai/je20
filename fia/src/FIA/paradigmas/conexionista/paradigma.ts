@@ -10,6 +10,8 @@ export namespace IAConexionista {
         clasificar: (c: ICanalizacion) => ISolucion;
     }
 
+    export interface IDato {}
+
     export interface ISolucion {}
 
     export interface IEtiqueta {
@@ -17,7 +19,7 @@ export namespace IAConexionista {
     }
 
     export interface IAprendizaje {
-
+        datos: IDato;
     }
 
     export interface IAprendizajeSupervisado extends IAprendizaje {
