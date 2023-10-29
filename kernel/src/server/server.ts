@@ -1,6 +1,7 @@
 import express from 'express'
 import path from 'path'
 import http from 'http'
+import { HaskellServer } from './haskell-server'
 const port: number = 3001
 
 class App {
@@ -38,6 +39,14 @@ class App {
     }
 
     public Start() {
+
+        console.log("Create HaskellServer");
+
+        const s = new HaskellServer(); 
+        process.on('exit', () => {
+            s.haskellProcess.stdin.end();
+        });
+
         this.server.listen(this.port, () => {
             console.log(`Server listening on port ${this.port}.`)
         })
