@@ -3,6 +3,8 @@ import { iFIA } from "./genesis-block";
 import { i18 } from "./i18/labels";
 import * as readline from 'readline';
 
+export const EXIT_PROMPT_INDEX = 99;
+
 const rt = new Runtime();
 rt.start();
 
@@ -14,16 +16,18 @@ export function menuOption(message: string) {
     return `\t - ${message}`;
 }
 
-Runtime.threads.forEach((t: iFIA, index: number) => {
-    console.log(menuOption(`[${index}]: Ejecutar ${t.nombre}`));
-})
-
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 });
 
 const waitForUserInput = () => {
+
+    console.log(systemMessage(`${i18.MENU_HEADER_LABEL}`));
+    Runtime.threads.forEach((t: iFIA, index: number) => {
+        console.log(menuOption(`[${index}]: Modelo: ${t.nombre}`));
+    });
+    console.log(menuOption(`[${EXIT_PROMPT_INDEX}]: ${i18.EXIT_PROMT_LABEL}`));
 
     rl.question(`${i18.MENU_PROMPT_DATA_LABEL}`, (answer) => {
 
@@ -40,14 +44,14 @@ const waitForUserInput = () => {
                 console.log("Error loading FIA", Ex.message);
             }
         }
-        if (index == 0){
-            console.log("run close");
+        if (index == EXIT_PROMPT_INDEX){
+            console.log(systemMessage(`"System closed by user! Bye!"`));
             rl.close();
         } else {
-            console.log("run index", index);
             waitForUserInput();
         }
     });
 }
 
+console.log(systemMessage(`${i18.LOAD_FIA_LABEL}`));
 waitForUserInput();

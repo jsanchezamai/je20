@@ -23,10 +23,11 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.menuOption = exports.systemMessage = void 0;
+exports.menuOption = exports.systemMessage = exports.EXIT_PROMPT_INDEX = void 0;
 const runtime_1 = require("./engine/kernel/runtime");
 const labels_1 = require("./i18/labels");
 const readline = __importStar(require("readline"));
+exports.EXIT_PROMPT_INDEX = 99;
 const rt = new runtime_1.Runtime();
 rt.start();
 function systemMessage(message) {
@@ -37,14 +38,16 @@ function menuOption(message) {
     return `\t - ${message}`;
 }
 exports.menuOption = menuOption;
-runtime_1.Runtime.threads.forEach((t, index) => {
-    console.log(menuOption(`[${index}]: Ejecutar ${t.nombre}`));
-});
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 });
 const waitForUserInput = () => {
+    console.log(systemMessage(`${labels_1.i18.MENU_HEADER_LABEL}`));
+    runtime_1.Runtime.threads.forEach((t, index) => {
+        console.log(menuOption(`[${index}]: Modelo: ${t.nombre}`));
+    });
+    console.log(menuOption(`[${exports.EXIT_PROMPT_INDEX}]: ${labels_1.i18.EXIT_PROMT_LABEL}`));
     rl.question(`${labels_1.i18.MENU_PROMPT_DATA_LABEL}`, (answer) => {
         const index = parseInt(answer);
         if (isNaN(index)) {
@@ -59,14 +62,14 @@ const waitForUserInput = () => {
                 console.log("Error loading FIA", Ex.message);
             }
         }
-        if (index == 0) {
-            console.log("run close");
+        if (index == exports.EXIT_PROMPT_INDEX) {
+            console.log(systemMessage(`"System closed by user! Bye!"`));
             rl.close();
         }
         else {
-            console.log("run index", index);
             waitForUserInput();
         }
     });
 };
+console.log(systemMessage(`${labels_1.i18.LOAD_FIA_LABEL}`));
 waitForUserInput();

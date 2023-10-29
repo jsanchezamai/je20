@@ -8,7 +8,7 @@ exports.i18 = {
     ME_LABEL: exports.i18_ME.ME_LABEL,
     MENU_HEADER_LABEL: `Escoge:`,
     MENU_PROMPT_DATA_LABEL: `Escribe:`,
-    LAST_OPTION_LABEL: "Not today! ¡Cerrar!, please, bye!",
-    LOAD_FIA_LABEL: "Cargar FIA. Introduce modelo, o enter para listado.",
+    EXIT_PROMT_LABEL: "Not today! ¡Cerrar!, please, bye!",
+    LOAD_FIA_LABEL: "Cargando FIAs disponibles, por favor espera... ",
     IDLE_STATE_LABEL: "Nada qué hacer! Cierro!"
 };
