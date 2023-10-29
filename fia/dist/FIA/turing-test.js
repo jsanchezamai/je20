@@ -1,12 +1,19 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TuringTester = void 0;
+const thread_1 = require("./thread");
+const labels_1 = require("./i18/labels");
 class TuringTester {
     constructor() {
         this.test = (tested) => {
+            console.log((0, thread_1.agentMessage)(tested.nombre, labels_1.i18.TURING_TEST_START_LABEL));
+            console.log((0, thread_1.agentMessage)(labels_1.i18.ME_TURING_TESTER, labels_1.i18.TURING_TEST_LABEL));
             const accion = tested
-                .razona("¿Eres humano?", "Test");
-            return accion == "Sí" ? accion : "No";
+                .razona(labels_1.i18.TURING_TEST_LABEL, "Test");
+            const veredicto = accion == "Sí" ? accion : "No";
+            console.log((0, thread_1.agentMessage)(tested.nombre, veredicto));
+            console.log((0, thread_1.agentMessage)(labels_1.i18.ME_TURING_TESTER, labels_1.i18.TURING_TEST_STOP_LABEL));
+            return "";
         };
     }
 }

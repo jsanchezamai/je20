@@ -14,7 +14,7 @@ var IACientifica;
         };
     IACientifica.fiaFuerte.imprimir = () => {
         const tester = new turing_test_1.TuringTester();
-        return `${labels_1.i18.LAUNCHING_TURING_TEST}: ${tester.test(IACientifica.fiaFuerte)}`;
+        return `${tester.test(IACientifica.fiaFuerte)}`;
     };
     IACientifica.fiaDebil = new genesis_block_1.GenesisBlock();
     IACientifica.fiaDebil.nombre = labels_1.i18.FIA_CIENCITICA_DEBIL_LABEL;
@@ -24,6 +24,6 @@ var IACientifica;
         };
     IACientifica.fiaDebil.imprimir = () => {
         const tester = new turing_test_1.TuringTester();
-        return `${labels_1.i18.LAUNCHING_TURING_TEST}: ${tester.test(IACientifica.fiaDebil)}`;
+        return `${tester.test(IACientifica.fiaDebil)}`;
     };
 })(IACientifica || (exports.IACientifica = IACientifica = {}));

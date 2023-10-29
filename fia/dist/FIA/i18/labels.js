@@ -6,6 +6,8 @@ exports.i18_ME = {
 };
 exports.i18 = {
     ME_LABEL: exports.i18_ME.ME_LABEL,
+    ME_TURING_TESTER: "turing-tester",
+    TURING_TEST_LABEL: "Para ser fuerte, debes ser como un humano. Si no, serás débil. Razona lo siguiente: ¿eres humano?",
     FIA_CIENTIFICA_LABEL: "cientifica",
     FIA_CONEXIONISTA_LABEL: "conexionista",
     FIA_SIMBOLICA_LABEL: "simbolica",
@@ -19,5 +21,6 @@ exports.i18 = {
     LAUNCH_FIA_LABEL: "Transfiriendo el prompt a",
     NOT_INIT_LABEL: "¡No estoy inicializada, por favor, instánciame!",
     IDLE_STATE_LABEL: "Nada qué hacer! Cierro!",
-    LAUNCHING_TURING_TEST: "Resultado de ejecutarme el test de turing"
+    TURING_TEST_START_LABEL: "iniciar test-turing",
+    TURING_TEST_STOP_LABEL: "¡Test concluído!"
 };

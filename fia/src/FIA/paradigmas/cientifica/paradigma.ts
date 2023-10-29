@@ -13,7 +13,7 @@ export namespace IACientifica {
     }
     fiaFuerte.imprimir = () => {
         const tester = new TuringTester();
-        return `${i18.LAUNCHING_TURING_TEST}: ${tester.test(fiaFuerte)}`;
+        return `${tester.test(fiaFuerte)}`;
     }
 
     export const fiaDebil = new GenesisBlock();
@@ -25,7 +25,7 @@ export namespace IACientifica {
     }
     fiaDebil.imprimir = () => {
         const tester = new TuringTester();
-        return `${i18.LAUNCHING_TURING_TEST}: ${tester.test(fiaDebil)}`;
+        return `${tester.test(fiaDebil)}`;
     }
 
 }
