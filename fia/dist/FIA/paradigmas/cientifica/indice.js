@@ -7,9 +7,9 @@ const tester = new turing_test_1.TuringTester();
 const loadCiencia = () => {
     console.log("\t\t - Tipos de inteligencia #1:");
     console.log("\t\t\t tester> ¿Eres o podrías ser humana?");
-    console.log(`\t\t\t ${paradigma_1.IACientifica.fiaDebil.modelo}> ${tester.test(paradigma_1.IACientifica.fiaDebil)}`);
+    console.log(`\t\t\t ${paradigma_1.IACientifica.fiaDebil.nombre}> ${tester.test(paradigma_1.IACientifica.fiaDebil)}`);
     console.log("\t\t - Tipos de inteligencia #2:");
     console.log("\t\t\t tester> ¿Eres o podrías ser humana?");
-    console.log(`\t\t\t ${paradigma_1.IACientifica.fiaFuerte.modelo}> ${tester.test(paradigma_1.IACientifica.fiaFuerte)}`);
+    console.log(`\t\t\t ${paradigma_1.IACientifica.fiaFuerte.nombre}> ${tester.test(paradigma_1.IACientifica.fiaFuerte)}`);
 };
 exports.loadCiencia = loadCiencia;

@@ -7,10 +7,10 @@ export const loadCiencia = () => {
 
     console.log("\t\t - Tipos de inteligencia #1:");
     console.log("\t\t\t tester> ¿Eres o podrías ser humana?");
-    console.log(`\t\t\t ${IACientifica.fiaDebil.modelo}> ${tester.test(IACientifica.fiaDebil)}`);
+    console.log(`\t\t\t ${IACientifica.fiaDebil.nombre}> ${tester.test(IACientifica.fiaDebil)}`);
 
     console.log("\t\t - Tipos de inteligencia #2:");
     console.log("\t\t\t tester> ¿Eres o podrías ser humana?");
-    console.log(`\t\t\t ${IACientifica.fiaFuerte.modelo}> ${tester.test(IACientifica.fiaFuerte)}`);
+    console.log(`\t\t\t ${IACientifica.fiaFuerte.nombre}> ${tester.test(IACientifica.fiaFuerte)}`);
 }
 

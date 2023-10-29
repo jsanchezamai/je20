@@ -10,10 +10,10 @@ console.log("\t - Proceso principal:");
 
 const fia = new FIA();
 
-console.log("\t\t - Carga del modelo semilla:", fia.modelo);
+console.log("\t\t - Carga del modelo semilla:", fia.nombre);
 
 const gb = new GenesisBlock();
-console.log("\t\t - Carga de la instancia génesis:", gb.modelo);
+console.log("\t\t - Carga de la instancia génesis:", gb.nombre);
 
 console.log("\n", "\t - Hechos raíz:");
 

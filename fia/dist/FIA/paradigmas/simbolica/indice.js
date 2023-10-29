@@ -5,6 +5,6 @@ const paradigma_1 = require("./paradigma");
 const loadSimbolica = () => {
     console.log("\t\t - Tipos de inteligencia #3:");
     console.log("\t\t\t tester> ¿Siguiente?");
-    console.log(`\t\t\t ${paradigma_1.IASimbolica.fiaSimbolica.modelo}> hola!`);
+    console.log(`\t\t\t ${paradigma_1.IASimbolica.fiaSimbolica.nombre}> hola!`);
 };
 exports.loadSimbolica = loadSimbolica;

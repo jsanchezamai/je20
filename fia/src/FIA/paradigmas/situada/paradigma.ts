@@ -1,22 +1,30 @@
-import { GenesisBlock, IAccion, IProblema, IRequisitos, ISoluciones, Intention, World, iFIA } from "../../genesis-block";
+import { GenesisBlock, IAccion, Intencion, Mundo, iFIA } from "../../genesis-block";
 
 export namespace IASituada {
 
+    type Aferencia = (w: Mundo) => IAccion;
+    type Eferencia = (a: IAccion) => Mundo;
+
+    export interface IAutomata {
+        paso: (a: Aferencia) => Eferencia;
+    }
+
     export interface iIASituada extends iFIA {
-        aferencia: (w: World) => IAccion;
-        eferencia: (a: IAccion) => World;
+
+        automata: IAutomata;
+
     }
 
     export class iIASituada extends GenesisBlock implements iIASituada {
-        aferencia: (w: World) => IAccion;
-        eferencia: (a: IAccion) => World;
+        aferencia: (w: Mundo) => IAccion;
+        eferencia: (a: IAccion) => Mundo;
     }
 
     export const fiaSituada = new iIASituada();
 
-    fiaSituada.modelo = "FIA Situada";
+    fiaSituada.nombre = "FIA Situada";
     fiaSituada.razona =
-        (w: World, i: Intention) => {
+        (w: Mundo, i: Intencion) => {
         return "Sí";
     }
 

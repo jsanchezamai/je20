@@ -8,7 +8,7 @@ var IASituada;
     }
     IASituada.iIASituada = iIASituada;
     IASituada.fiaSituada = new iIASituada();
-    IASituada.fiaSituada.modelo = "FIA Situada";
+    IASituada.fiaSituada.nombre = "FIA Situada";
     IASituada.fiaSituada.razona =
         (w, i) => {
             return "Sí";

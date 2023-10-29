@@ -1,20 +1,20 @@
-import { GenesisBlock, Intention, World } from "../../genesis-block";
+import { GenesisBlock, Intencion, Mundo } from "../../genesis-block";
 
 export namespace IACientifica {
 
     export const fiaFuerte = new GenesisBlock();
 
-    fiaFuerte.modelo = "FIA Fuerte";
+    fiaFuerte.nombre = "FIA Fuerte";
     fiaFuerte.razona =
-        (w: World, i: Intention) => {
+        (w: Mundo, i: Intencion) => {
         return "Sí";
     }
 
     export const fiaDebil = new GenesisBlock();
 
-    fiaDebil.modelo = "FIA Debil";
+    fiaDebil.nombre = "FIA Debil";
     fiaDebil.razona =
-        (w: World, i: Intention) => {
+        (w: Mundo, i: Intencion) => {
         return "No";
     }
 

@@ -8,9 +8,9 @@ var IASimbolica;
     }
     IASimbolica_1.IASimbolica = IASimbolica;
     IASimbolica_1.fiaSimbolica = new IASimbolica();
-    IASimbolica_1.fiaSimbolica.modelo = "FIA Simbolica";
+    IASimbolica_1.fiaSimbolica.nombre = "FIA Simbolica";
     IASimbolica_1.fiaSimbolica.razona =
         (w, i) => {
-            return "Sí";
+            return "No";
         };
 })(IASimbolica || (exports.IASimbolica = IASimbolica = {}));
