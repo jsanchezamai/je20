@@ -13,11 +13,9 @@ export interface ITuringTest {
 
 export class TuringTester implements ITuringTest {
 
-    constructor(
-        public tested: iFIA = null
-    ) {
+    tested: iFIA;
 
-    }
+    constructor() {}
 
     test = (tested: iFIA) => {
 

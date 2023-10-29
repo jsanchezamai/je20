@@ -23,6 +23,18 @@ export interface IAccion {
 
 }
 
+export interface IProblema {
+
+}
+
+export interface ISoluciones {
+
+}
+
+export interface IRequisitos {
+
+}
+
 export class FIA implements iFIA {
     abstrae: (p: IPercepto) => IAprendize;
     razona: (w: string, i: string) => IAccion;

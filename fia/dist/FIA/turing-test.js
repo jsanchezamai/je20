@@ -2,8 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TuringTester = void 0;
 class TuringTester {
-    constructor(tested = null) {
-        this.tested = tested;
+    constructor() {
         this.test = (tested) => {
             const accion = tested
                 .razona("¿Eres humano?", "Test");
