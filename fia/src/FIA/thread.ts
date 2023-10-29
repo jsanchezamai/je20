@@ -1,43 +1,53 @@
+import { Runtime } from "./engine/kernel/runtime";
+import { iFIA } from "./genesis-block";
+import { i18 } from "./i18/labels";
+import * as readline from 'readline';
 
-import { FIA, GenesisBlock } from "./genesis-block";
-import { loadCientifica } from "./paradigmas/cientifica/indice";
-import { loadSimbolica } from "./paradigmas/simbolica/indice";
-import { loadSituada } from "./paradigmas/situada/indice";
-import { loadConexionista } from "./paradigmas/conexionista/indice";
-import { Menu } from "./menu";
+const rt = new Runtime();
+rt.start();
 
+export function systemMessage(message: string) {
+    return `${i18.ME_LABEL}> ${message}`;
+}
 
-const m = new Menu(
-    ["- ¡¡Listo para interactuar, humanos!!!",
-    "- Not today, close, please, bye!"]
-);
+export function menuOption(message: string) {
+    return `\t - ${message}`;
+}
 
-m.run().then(
-    (value: { selectedItem: string; text: string }) => {
-    console.log(value);
-    }
-);
+Runtime.threads.forEach((t: iFIA, index: number) => {
+    console.log(menuOption(`[${index}]: Ejecutar ${t.nombre}`));
+})
 
-console.log("Iniciando el modelizador de Fundamentos de inteligencia artificial. v1...");
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
 
-console.log("\t - Proceso principal:");
+const waitForUserInput = () => {
 
-const fia = new FIA();
+    rl.question(`${i18.MENU_PROMPT_DATA_LABEL}`, (answer) => {
 
-console.log("\t\t - Carga del modelo semilla:", fia.nombre);
+        const index = parseInt(answer);
+        if (isNaN(index)) {
+            console.log("No FIA index given!", answer);
+        } else {
 
-const gb = new GenesisBlock();
-console.log("\t\t - Carga de la instancia génesis:", gb.nombre);
+            try {
+                const fia = Runtime.threads[index];
+                console.log("Write FIA", fia.nombre);
 
-console.log("\n", "\t - Hechos raíz:");
+            } catch(Ex) {
+                console.log("Error loading FIA", Ex.message);
+            }
+        }
+        if (index == 0){
+            console.log("run close");
+            rl.close();
+        } else {
+            console.log("run index", index);
+            waitForUserInput();
+        }
+    });
+}
 
-loadCientifica();
-loadSimbolica();
-loadSituada();
-loadConexionista();
-
-console.log("\n", "\t - El sistema inteligente ha sido cargado!");
-
-
-
-
+waitForUserInput();

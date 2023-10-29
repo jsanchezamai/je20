@@ -1,8 +1,12 @@
 import * as readline from 'readline';
+import { i18, i18_ME } from './thread';
 
+export function systemMessage(message: string) {
+    return `${i18.ME_LABEL}> ${message}`;
+}
 export class Menu {
     private currentIndex = 0;
-    constructor(private menuItems: string[]) {}
+    constructor(public menuItems: string[]) {}
 
     private colorText(text: string, color: string): string {
         const colorCodes: Record<string, string> = { reset: '\x1b[0m', green: '\x1b[32m', blue: '\x1b[34m' };
@@ -11,7 +15,7 @@ export class Menu {
 
     private renderMenu(): void {
         console.clear();
-        console.log(this.colorText(`1. PLEASE, SELECT ITEM: `, 'blue'));
+        console.log(this.colorText(systemMessage(`${i18.MENU_HEADER_LABEL}`), 'blue'));
         this.menuItems.forEach((item, i) =>
             console.log(i === this.currentIndex ? this.colorText(`→ ${item}`, 'green') : `  ${item}`),
         );
@@ -42,7 +46,7 @@ export class Menu {
                     process.stdin.setRawMode(false);
                     process.stdin.removeListener('keypress', handleKeyPress);
                     const text = await this.inputText(
-                        this.colorText(`2. PLEASE, ENTER ADDITIONAL INFORMATION: `, 'blue'),
+                        this.colorText(systemMessage(`${i18.MENU_PROMPT_DATA_LABEL}`), 'blue'),
                     );
                     return res({ selectedItem: this.menuItems[this.currentIndex], text });
                 } else if (key.name === 'c' && key.ctrl) process.exit(0);
