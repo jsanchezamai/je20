@@ -1,3 +1,5 @@
+import { i18 } from "./i18/labels";
+
 export type Any = string;
 
 export type Mundo = Any;
@@ -14,6 +16,8 @@ export interface iFIA {
     mundo: Mundo;
 
     objetivos: Intencion;
+
+    imprimir: () => string;
 }
 
 export interface IAprendize {
@@ -34,12 +38,19 @@ export class FIA implements iFIA {
     razona: (w: string, i: string) => IAccion;
     nombre = "FIA";
     objetivos: string;
+
+    imprimir(): string {
+        return `${i18.NOT_INIT_LABEL}`;
+    }
+
 }
 
-export class GenesisBlock implements iFIA {
+export class GenesisBlock extends FIA {
+
     mundo: Mundo;
     abstrae: (p: IPercepto) => IAprendize;
     razona: (w: string, i: string) => IAccion;
     nombre = "FIA_Genesis";
     objetivos: string;
+
 }

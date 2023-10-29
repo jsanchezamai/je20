@@ -1,4 +1,5 @@
 import { GenesisBlock, Intencion, Mundo, iFIA } from "../../genesis-block";
+import { i18 } from "../../i18/labels";
 
 export namespace IAConexionista {
 
@@ -57,7 +58,7 @@ export namespace IAConexionista {
 
     export const fiaConexionista = new IAConexionista();
 
-    fiaConexionista.nombre = "FIA Conexionista";
+    fiaConexionista.nombre = i18.FIA_CONEXIONISTA_LABEL;
     fiaConexionista.razona =
         (m: Mundo, i: Intencion) => {
         return "No";

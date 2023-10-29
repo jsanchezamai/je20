@@ -1,4 +1,5 @@
 import { GenesisBlock, IAccion, Intencion, Mundo, iFIA } from "../../genesis-block";
+import { i18 } from "../../i18/labels";
 
 export namespace IASituada {
 
@@ -22,7 +23,7 @@ export namespace IASituada {
 
     export const fiaSituada = new iIASituada();
 
-    fiaSituada.nombre = "FIA Situada";
+    fiaSituada.nombre = i18.FIA_SITUADA_LABEL;
     fiaSituada.razona =
         (w: Mundo, i: Intencion) => {
         return "Sí";

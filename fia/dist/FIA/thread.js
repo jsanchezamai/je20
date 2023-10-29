@@ -23,7 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.menuOption = exports.systemMessage = exports.EXIT_PROMPT_INDEX = void 0;
+exports.menuOption = exports.agentMessage = exports.systemMessage = exports.EXIT_PROMPT_INDEX = void 0;
 const runtime_1 = require("./engine/kernel/runtime");
 const labels_1 = require("./i18/labels");
 const readline = __importStar(require("readline"));
@@ -34,6 +34,10 @@ function systemMessage(message) {
     return `${labels_1.i18.ME_LABEL}> ${message}`;
 }
 exports.systemMessage = systemMessage;
+function agentMessage(agent, message) {
+    return `${agent}> ${message}`;
+}
+exports.agentMessage = agentMessage;
 function menuOption(message) {
     return `\t - ${message}`;
 }
@@ -56,7 +60,9 @@ const waitForUserInput = () => {
         else {
             try {
                 const fia = runtime_1.Runtime.threads[index];
-                console.log("Write FIA", fia.nombre);
+                console.log(systemMessage(`${labels_1.i18.LAUNCH_FIA_LABEL}`));
+                console.clear();
+                console.log(agentMessage(fia.nombre, fia.imprimir()));
             }
             catch (Ex) {
                 console.log("Error loading FIA", Ex.message);

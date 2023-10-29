@@ -1,4 +1,5 @@
 import { GenesisBlock, Intencion, Mundo, iFIA } from "../../genesis-block";
+import { i18 } from "../../i18/labels";
 
 export namespace IASimbolica {
 
@@ -53,7 +54,7 @@ export namespace IASimbolica {
 
     export const fiaSimbolica = new IASimbolica();
 
-    fiaSimbolica.nombre = "FIA Simbolica";
+    fiaSimbolica.nombre = i18.FIA_SIMBOLICA_LABEL;
     fiaSimbolica.razona =
         (m: Mundo, i: Intencion) => {
         return "No";

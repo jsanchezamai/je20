@@ -1,9 +1,5 @@
 
 import { iFIA, FIA, GenesisBlock } from "../../genesis-block";
-import { loadCientifica } from "../../paradigmas/cientifica/indice";
-import { loadSimbolica } from "../../paradigmas/simbolica/indice";
-import { loadSituada } from "../../paradigmas/situada/indice";
-import { loadConexionista } from "../../paradigmas/conexionista/indice";
 import { IACientifica } from "../../paradigmas/cientifica/paradigma";
 import { IASimbolica } from "../../paradigmas/simbolica/paradigma";
 import { IASituada } from "../../paradigmas/situada/paradigma";

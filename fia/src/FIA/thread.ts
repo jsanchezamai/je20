@@ -12,6 +12,10 @@ export function systemMessage(message: string) {
     return `${i18.ME_LABEL}> ${message}`;
 }
 
+export function agentMessage(agent: string, message: string) {
+    return `${agent}> ${message}`;
+}
+
 export function menuOption(message: string) {
     return `\t - ${message}`;
 }
@@ -38,7 +42,10 @@ const waitForUserInput = () => {
 
             try {
                 const fia = Runtime.threads[index];
-                console.log("Write FIA", fia.nombre);
+
+                console.clear();
+                console.log(systemMessage(`${i18.LAUNCH_FIA_LABEL}`));
+                console.log(agentMessage(fia.nombre, fia.imprimir()));
 
             } catch(Ex) {
                 console.log("Error loading FIA", Ex.message);
