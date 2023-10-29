@@ -44,7 +44,7 @@ const waitForUserInput = () => {
                 const fia = Runtime.threads[index];
 
                 console.clear();
-                console.log(systemMessage(`${i18.LAUNCH_FIA_LABEL}`));
+                console.log(systemMessage(`${i18.LAUNCH_FIA_LABEL}: ${fia.nombre}`));
                 console.log(agentMessage(fia.nombre, fia.imprimir()));
 
             } catch(Ex) {

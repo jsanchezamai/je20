@@ -60,8 +60,8 @@ const waitForUserInput = () => {
         else {
             try {
                 const fia = runtime_1.Runtime.threads[index];
-                console.log(systemMessage(`${labels_1.i18.LAUNCH_FIA_LABEL}`));
                 console.clear();
+                console.log(systemMessage(`${labels_1.i18.LAUNCH_FIA_LABEL}: ${fia.nombre}`));
                 console.log(agentMessage(fia.nombre, fia.imprimir()));
             }
             catch (Ex) {

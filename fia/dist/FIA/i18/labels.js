@@ -16,7 +16,8 @@ exports.i18 = {
     MENU_PROMPT_DATA_LABEL: `Escribe:`,
     EXIT_PROMT_LABEL: "Not today! ¡Cerrar!, please, bye!",
     LOAD_FIA_LABEL: "Cargando FIAs disponibles, por favor espera... ",
-    LAUNCH_FIA_LABEL: "Iniciando operativa",
+    LAUNCH_FIA_LABEL: "Transfiriendo el prompt a",
     NOT_INIT_LABEL: "¡No estoy inicializada, por favor, instánciame!",
-    IDLE_STATE_LABEL: "Nada qué hacer! Cierro!"
+    IDLE_STATE_LABEL: "Nada qué hacer! Cierro!",
+    LAUNCHING_TURING_TEST: "Resultado de ejecutarme el test de turing"
 };
