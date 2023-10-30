@@ -2,6 +2,7 @@ import { i18 } from "../i18/labels";
 import { IModelo, IMundo, Mundo } from "./mundo";
 
 export class CadenaProduccion {
+
     mundo: IMundo;
 
     constructor() {

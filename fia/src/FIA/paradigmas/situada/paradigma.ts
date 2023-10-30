@@ -19,6 +19,7 @@ export namespace IASituada {
     }
 
     export class iIASituada extends GenesisBlock implements iIASituada {
+
         aferencia: (w: Mundo) => IAccion;
         eferencia: (a: IAccion) => Mundo;
 
@@ -29,10 +30,8 @@ export namespace IASituada {
             console.log(agentMessage(i18.FIA_SITUADA_LABEL, i18.SITUADA.SIMULATION_START));
 
             const cadena = new CadenaProduccion();
-            console.log(agentMessage(i18.FIA_SITUADA_LABEL, i18.SITUADA.SIMULATION_BODY));
-
             const modelo = await cadena.instanciar();
-            console.log(agentMessage(i18.FIA_SITUADA_LABEL, modelo.nombre));
+            console.log(agentMessage(i18.FIA_SITUADA_LABEL, `${i18.SITUADA.SIMULATION_BODY}:${modelo.nombre}`));
 
             return `${demo}`;
         }

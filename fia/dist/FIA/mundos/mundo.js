@@ -43,11 +43,11 @@ class Mundo {
         }
     }
     deponer(intervalo) {
-        clearInterval(intervalo);
         this.destructor();
+        clearInterval(intervalo);
     }
     destructor() {
-        (0, thread_1.agentMessage)(this.nombre, `${labels_1.i18.MUNDO.FIN_LABEL}`);
+        console.log((0, thread_1.agentMessage)(this.nombre, `${labels_1.i18.MUNDO.FIN_LABEL}`));
     }
     pulso(m) {
         m.dia++;

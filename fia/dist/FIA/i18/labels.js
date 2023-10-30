@@ -29,7 +29,7 @@ exports.i18 = {
     },
     SITUADA: {
         SIMULATION_START: "Hola soy un autómata situado. Voy a ejemplificar mi forma de razonar. Para ello operaré un serie de pasos recibiendo señales con mis sensores y enviando acciones.",
-        SIMULATION_BODY: "Estas son las conexiones que haré con el mundo.",
+        SIMULATION_BODY: "Modelo resultante",
         SIMULATION_END: "¡Finalizado!"
     },
     MUNDO: {

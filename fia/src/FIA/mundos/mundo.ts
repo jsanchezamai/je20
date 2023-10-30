@@ -88,6 +88,7 @@ export class Mundo implements IMundo {
             }
 
         } else {
+
             this.deponer(this.pulsoVital);
             vivir(this.modelo);
 
@@ -95,14 +96,13 @@ export class Mundo implements IMundo {
     }
 
     deponer(intervalo: any) {
-
-        clearInterval(intervalo);
         this.destructor();
+        clearInterval(intervalo);
 
     }
 
     destructor() {
-        agentMessage(this.nombre, `${i18.MUNDO.FIN_LABEL}`)
+        console.log(agentMessage(this.nombre, `${i18.MUNDO.FIN_LABEL}`));
     }
 
     pulso(m: IModelo): IModelo {

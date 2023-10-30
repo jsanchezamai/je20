@@ -53,5 +53,4 @@ server.listen(port, async () => {
     const rt = new runtime_1.Runtime();
     rt.start();
     await rt.demo();
-    console.log("Server thread!");
 });

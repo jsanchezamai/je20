@@ -12,9 +12,8 @@ var IASituada;
             const demo = "Final de ejecución";
             console.log((0, thread_1.agentMessage)(labels_1.i18.FIA_SITUADA_LABEL, labels_1.i18.SITUADA.SIMULATION_START));
             const cadena = new cadena_produccion_1.CadenaProduccion();
-            console.log((0, thread_1.agentMessage)(labels_1.i18.FIA_SITUADA_LABEL, labels_1.i18.SITUADA.SIMULATION_BODY));
             const modelo = await cadena.instanciar();
-            console.log((0, thread_1.agentMessage)(labels_1.i18.FIA_SITUADA_LABEL, modelo.nombre));
+            console.log((0, thread_1.agentMessage)(labels_1.i18.FIA_SITUADA_LABEL, `${labels_1.i18.SITUADA.SIMULATION_BODY}:${modelo.nombre}`));
             return `${demo}`;
         }
     }
