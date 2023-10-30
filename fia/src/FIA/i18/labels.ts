@@ -9,9 +9,6 @@ export const i18 = {
 
     ME_LABEL: i18_ME.ME_LABEL,
 
-    ME_TURING_TESTER: "turing-tester",
-    TURING_TEST_LABEL: "Para ser fuerte, debes ser como un humano. Si no, serás débil. Razona lo siguiente: ¿eres humano?",
-
     FIA_CIENTIFICA_LABEL: "cientifica",
     FIA_CONEXIONISTA_LABEL: "conexionista",
     FIA_SIMBOLICA_LABEL: "simbolica",
@@ -24,12 +21,34 @@ export const i18 = {
 
     EXIT_PROMT_LABEL: "Not today! ¡Cerrar!, please, bye!",
 
-    LOAD_FIA_LABEL: "Cargando FIAs disponibles, por favor espera... ",
-    LAUNCH_FIA_LABEL: "Transfiriendo el prompt a",
-    NOT_INIT_LABEL: "¡No estoy inicializada, por favor, instánciame!",
+    LOOP: {
+        LOAD_FIA_LABEL: "Cargando FIAs disponibles, por favor espera... ",
+        LAUNCH_FIA_LABEL: "Transfiriendo el prompt a",
+        NOT_INIT_LABEL: "¡No estoy inicializada, por favor, instánciame!",
+    },
 
     IDLE_STATE_LABEL: "Nada qué hacer! Cierro!",
 
-    TURING_TEST_START_LABEL: "iniciar test-turing",
-    TURING_TEST_STOP_LABEL: "¡Test concluído!"
+    TURING: {
+        AGENT: "turing-tester",
+        TEST_LABEL: "Para ser fuerte, debes ser como un humano. Si no, serás débil. Razona lo siguiente: ¿eres humano?",
+        TEST_START_LABEL: "iniciar test-turing",
+        TEST_STOP_LABEL: "¡Test concluído!"
+    },
+
+    SITUADA: {
+        SIMULATION_START: "Hola soy un autómata situado. Voy a ejemplificar mi forma de razonar. Para ello operaré un serie de pasos recibiendo señales con mis sensores y enviando acciones.",
+        SIMULATION_BODY: "Estas son las conexiones que haré con el mundo.",
+        SIMULATION_END: "¡Finalizado!"
+    },
+
+    MUNDO: {
+        INICIO_LABEL: "¡Mundo iniciado!",
+        FIN_LABEL: "¡Mundo acabado!",
+
+        DIA_LABEL: "Hoy es el día:",
+
+        EJEMPLOS_CADENA_LABEL: "cadena"
+    }
+
 }

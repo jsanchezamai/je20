@@ -7,7 +7,17 @@ class FIA {
         this.nombre = "FIA";
     }
     imprimir() {
-        return `${labels_1.i18.NOT_INIT_LABEL}`;
+        return `${labels_1.i18.LOOP.NOT_INIT_LABEL}`;
+    }
+    async instanciar() {
+        return await new Promise((resolve, reject) => {
+            try {
+                resolve(`${labels_1.i18.LOOP.NOT_INIT_LABEL}`);
+            }
+            catch (ex) {
+                return reject(ex.message);
+            }
+        });
     }
 }
 exports.FIA = FIA;

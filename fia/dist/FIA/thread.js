@@ -23,13 +23,10 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.menuOption = exports.agentMessage = exports.systemMessage = exports.EXIT_PROMPT_INDEX = void 0;
+exports.menuOption = exports.agentMessage = exports.systemMessage = void 0;
 const runtime_1 = require("./engine/kernel/runtime");
 const labels_1 = require("./i18/labels");
-const readline = __importStar(require("readline"));
-exports.EXIT_PROMPT_INDEX = 99;
-const rt = new runtime_1.Runtime();
-rt.start();
+const http = __importStar(require("http"));
 function systemMessage(message) {
     return `${labels_1.i18.ME_LABEL}> ${message}`;
 }
@@ -42,40 +39,19 @@ function menuOption(message) {
     return `\t - ${message}`;
 }
 exports.menuOption = menuOption;
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
-const waitForUserInput = () => {
-    console.log(systemMessage(`${labels_1.i18.MENU_HEADER_LABEL}`));
-    runtime_1.Runtime.threads.forEach((t, index) => {
-        console.log(menuOption(`[${index}]: Modelo: ${t.nombre}`));
-    });
-    console.log(menuOption(`[${exports.EXIT_PROMPT_INDEX}]: ${labels_1.i18.EXIT_PROMT_LABEL}`));
-    rl.question(`${labels_1.i18.MENU_PROMPT_DATA_LABEL}`, (answer) => {
-        const index = parseInt(answer);
-        if (isNaN(index)) {
-            console.log("No FIA index given!", answer);
-        }
-        else {
-            try {
-                const fia = runtime_1.Runtime.threads[index];
-                console.clear();
-                console.log(systemMessage(`${labels_1.i18.LAUNCH_FIA_LABEL}: ${fia.nombre}`));
-                console.log(agentMessage(fia.nombre, fia.imprimir()));
-            }
-            catch (Ex) {
-                console.log("Error loading FIA", Ex.message);
-            }
-        }
-        if (index == exports.EXIT_PROMPT_INDEX) {
-            console.log(systemMessage(`"System closed by user! Bye!"`));
-            rl.close();
-        }
-        else {
-            waitForUserInput();
-        }
-    });
+const host = 'localhost';
+const port = 8000;
+const requestListener = (req, res) => {
+    res.writeHead(200);
+    res.end("My first server!");
 };
-console.log(systemMessage(`${labels_1.i18.LOAD_FIA_LABEL}`));
-waitForUserInput();
+const server = http.createServer(requestListener);
+server.on('error', (e) => {
+    // Handle Error
+});
+server.listen(port, async () => {
+    const rt = new runtime_1.Runtime();
+    rt.start();
+    await rt.demo();
+    console.log("Server thread!");
+});

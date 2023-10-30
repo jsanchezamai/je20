@@ -22,15 +22,15 @@ export class TuringTester implements ITuringTest {
     test = (tested: iFIA) => {
 
 
-        console.log(agentMessage(tested.nombre, i18.TURING_TEST_START_LABEL));
-        console.log(agentMessage(i18.ME_TURING_TESTER, i18.TURING_TEST_LABEL));
+        console.log(agentMessage(tested.nombre, i18.TURING.TEST_START_LABEL));
+        console.log(agentMessage(i18.TURING.AGENT, i18.TURING.TEST_LABEL));
         const accion = tested
-            .razona(i18.TURING_TEST_LABEL, "Test");
+            .razona(i18.TURING.TEST_LABEL, "Test");
 
         const veredicto = accion == "Sí" ? accion as TestResult : "No";
         console.log(agentMessage(tested.nombre, veredicto));
 
-        console.log(agentMessage(i18.ME_TURING_TESTER, i18.TURING_TEST_STOP_LABEL))
+        console.log(agentMessage(i18.TURING.AGENT, i18.TURING.TEST_STOP_LABEL))
 
         return "";
     }

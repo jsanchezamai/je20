@@ -18,6 +18,8 @@ export interface iFIA {
     objetivos: Intencion;
 
     imprimir: () => string;
+
+    instanciar(): Promise<string>;
 }
 
 export interface IAprendize {
@@ -40,7 +42,22 @@ export class FIA implements iFIA {
     objetivos: string;
 
     imprimir(): string {
-        return `${i18.NOT_INIT_LABEL}`;
+        return `${i18.LOOP.NOT_INIT_LABEL}`;
+    }
+
+    async instanciar(): Promise<string> {
+        return await new Promise((resolve, reject) => {
+
+            try {
+
+                resolve(`${i18.LOOP.NOT_INIT_LABEL}`);
+
+            } catch(ex) {
+
+                return reject(ex.message);
+
+            }
+        });
     }
 
 }
