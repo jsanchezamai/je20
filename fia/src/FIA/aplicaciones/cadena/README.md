@@ -14,14 +14,15 @@ El producto mínimo viable no implementa toda la funcionalidad (Ver bajo enuncia
 # Log de salida
 
 
-
+```
 **sistema>** Escoge:
          - [0]: Modelo: FIA
          - [1]: Modelo: FIA_Genesis
          - [2]: Modelo: debil
          - [3]: Modelo: fuerte
          - [4]: Modelo: simbolica
-         - [5]: Modelo: situada
+         - [5]: Modelo: situada (Autómata CP)
+
 **sistema>** Transfiriendo el prompt a: **Autómata CP**
 **Autómata CP**> Hola soy un autómata situado. Voy a ejemplificar mi forma de razonar. Para ello operaré un serie de pasos recibiendo señales con mis sensores y enviando acciones.
 **Autómata CP**> ¡Mundo iniciado!
@@ -121,14 +122,13 @@ El producto mínimo viable no implementa toda la funcionalidad (Ver bajo enuncia
                  -motor: FUERA_SERVICIO
                  -iluminacion: false
 **Autómata CP**> ¡Simulación finalizada!
-
+```
 
 # [x] Implementar demo del autómata en [FIA Situada](src/FIA/paradigmas/situada)
 
 En la versión 0.0.1, el menú da acceso a la FIA Situada:
 
->
->
+```
 **sistema>** Cargando FIAs disponibles, por favor espera... 
 **sistema>** Escoge:
          - [0]: Modelo: FIA
@@ -140,6 +140,7 @@ En la versión 0.0.1, el menú da acceso a la FIA Situada:
          - [6]: Modelo: conexionista
          - [99]: Not today! ¡Cerrar!, please, bye!
 Escribe: 
+```
 
 La implementación actual implementa "**La Cadena de Montaje**". El autómata de la FIA Situada deberá mantener el **estado** y sus **transiciones** para 50 **unidades de trabajo** que desfilaran por una cadena de montaje con 100 posiciones, a la que están conectadas 5 **máquinas** con retención de unidad de trabajo (sin obstaculizar la cadena) de 2 segundos. Las 5 máquinas ejecutan la misma acción. Pero la nº5 ejecuta además un proceso especial obligado todas las unidades de trabajo.
 
