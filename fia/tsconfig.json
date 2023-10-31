@@ -6,6 +6,7 @@
         "esModuleInterop": true
     },
     "include": [
-        "src/typings/**/*.d.ts",
-        "src/server/**/*.ts", "src/FIA/thread.ts"]
+        "src/**/*.d.ts",
+        "src/**/*.ts"
+    ]
 }

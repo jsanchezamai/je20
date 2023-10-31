@@ -1,7 +1,7 @@
 import { GenesisBlock, Intencion, Mundo, iFIA } from "../../genesis-block";
 import { i18 } from "../../i18/labels";
 
-export namespace IAConexionista {
+
 
     export interface ICanalizacion {}
 
@@ -55,6 +55,8 @@ export namespace IAConexionista {
             return this.red.clasificar(c);
         }
     }
+
+export namespace IAConexionista {
 
     export const fiaConexionista = new IAConexionista();
 

@@ -71,8 +71,8 @@ export class Mundo implements IMundo {
     modelo = new Modelo();
 
     pulsoVital: NodeJS.Timeout;
-    eferencia: Subject<IMundo> = new Subject();
 
+    eferencia: Subject<IMundo> = new Subject();
     aferencias: Subscription[] = [];
 
     constructor() {}

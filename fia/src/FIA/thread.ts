@@ -28,9 +28,14 @@ const requestListener =  (req, res) => {
 const server = http.createServer(requestListener);
 
 server.on('error', (e) => {
+
   // Handle Error
+  console.log(console.log("Thread Handle Error:", systemMessage(e.message)));
+
 });
 server.listen(port, async () => {
+
+    console.log(systemMessage(i18.SISTEMA.STARTING_LABEL));
 
     const rt = new Runtime();
     rt.start();

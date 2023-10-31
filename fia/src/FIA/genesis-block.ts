@@ -37,8 +37,6 @@ export interface IAccion {
 
 }
 
-
-
 export class FIA implements iFIA {
 
     mundo: IMundo;

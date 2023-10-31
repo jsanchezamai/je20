@@ -3,11 +3,12 @@ import { iFIA, FIA, GenesisBlock } from "../../genesis-block";
 import { IACientifica } from "../../paradigmas/cientifica/paradigma";
 import { IASimbolica } from "../../paradigmas/simbolica/paradigma";
 import { IASituada } from "../../paradigmas/situada/paradigma";
-import { IASituadaCadenaProduccion } from "../../aplicaciones/cadena/cadena-fia";
+import { IASituadaCadenaProduccion } from "../../aplicaciones/cadena/situada/cadena-fia-situada";
 import { IAConexionista } from "../../paradigmas/conexionista/paradigma";
 import { i18 } from "../../i18/labels";
 import { agentMessage, menuOption, systemMessage } from "../../thread";
 import * as readline from 'readline';
+import { CadenaApp } from "../../aplicaciones/cadena/cadena-app";
 
 export const EXIT_PROMPT_INDEX = 99;
 
@@ -23,12 +24,21 @@ export class Runtime {
         const gb = new GenesisBlock();
         Runtime.threads.push(gb);
 
+        /**
+         * BASE
+         */
         Runtime.threads.push(IACientifica.fiaDebil);
         Runtime.threads.push(IACientifica.fiaFuerte);
+
         Runtime.threads.push(IASimbolica.fiaSimbolica);
         Runtime.threads.push(IASituada.fiaSituada);
-            Runtime.threads.push(IASituadaCadenaProduccion.fiaCadena);
         Runtime.threads.push(IAConexionista.fiaConexionista);
+
+        /**
+         * APPS
+         */
+        const cadenaApp = new CadenaApp();
+        Runtime.threads.push(cadenaApp);
 
     }
 

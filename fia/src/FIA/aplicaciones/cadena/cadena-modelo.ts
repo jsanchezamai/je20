@@ -1,4 +1,4 @@
-import { CadenaEstados } from "./cadena-estado";
+import { CadenaEstados } from "./situada/cadena-estado";
 import { Modelo } from "../../mundos/paradigma";
 
 

@@ -1,0 +1,28 @@
+{
+  "name": "jd20",
+  "version": "1.0.0",
+  "description": "[Repositorio con material para un Trabajo Final de Grado. Todas las referencias software/hardware deben ser entendidas como teóricas o de ámbito experimental; bien no existentes o bien esbozadas]. [Experimental use only].",
+  "scripts": {
+    "build": "webpack --config ./src/web/trinity/webpack.prod.js",
+    "dev": "webpack --config ./src/web/trinity/webpack.dev.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc && npm run build && cp ./src/server/index.html ./dist/web && node ./dist/server.js",
+    "startdev": "webpack serve --config ./src/web/trinity/webpack.dev.js",
+    "update": "git submodule update --remote"
+  },
+  "author": "Martín Santomé on behalf of Álex Santomé",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^17.0.23",
+    "ts-loader": "^9.2.8",
+    "typescript": "^4.6.2",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.4",
+    "webpack-merge": "^5.8.0"
+  },
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}

@@ -1,0 +1,9 @@
+**/.vscode
+**/.DS_Store
+**/*.class
+**/*.bluej
+**/*.TXT
+**/*.ctxt
+**/doc
+**/*.zip
+**/*.jar

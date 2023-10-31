@@ -52,6 +52,8 @@ import { Subject } from "rxjs";
 
     export interface IAutomata {
 
+        nombre: string;
+
         estado: IEstado;
         mundo: IMundo;
 
@@ -75,7 +77,11 @@ import { Subject } from "rxjs";
 
         eferencia = new Subject<IMundo>();
 
+        nombre: string;
+
         constructor() {
+
+            this.nombre = i18.SITUADA.AUTOMATA.NOMBRE;
             this.mundo = new Mundo();
             this.mundo.modelo = new Modelo();
             this.estado = new EstadoT<T>(this.mundo.modelo);
@@ -91,14 +97,14 @@ import { Subject } from "rxjs";
 
             this.mundo.eferencia.subscribe((m) => {
 
-                console.log(agentMessage(i18.FIA_SITUADA_LABEL, i18.SITUADA.AUTOMATA.RECEPCION_AFERENCIA_LABEL));
+                console.log(agentMessage(this.nombre, i18.SITUADA.AUTOMATA.RECEPCION_AFERENCIA_LABEL));
 
                 const aferencia = new EstadoT<T>(m.modelo);
                 this.estado.transicion(aferencia);
 
                 this.mundo.modelo = this.estado.comoModelo();
 
-                console.log(agentMessage(i18.FIA_SITUADA_LABEL, i18.SITUADA.AUTOMATA.ENVIO_EFERENCIA_LABEL));
+                console.log(agentMessage(this.nombre, i18.SITUADA.AUTOMATA.ENVIO_EFERENCIA_LABEL));
                 this.eferencia.next(this.mundo);
 
             });
