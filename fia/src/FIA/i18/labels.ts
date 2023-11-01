@@ -70,6 +70,17 @@ export const i18 = {
         }
     },
 
+    CONEXIONISTA: {
+        NEURONAL: {
+            NOMBRE: "red-neuronal",
+            REGLA: "regla.de.red.neuronal.conexionista",
+            IDLE: "Lista para recibir inferencia, envía tensores que te devuelvo ídem. Usa una canalación.",
+            CREANDO_SESION_INFERENCIA_LABEL: "Creando sesión de inferencia para el modelo: ",
+            CARGANDO_PARAMETROS_LABEL: "Tensores de entrada: ",
+            RESPUESTA_INFERENCIA_LABEL: "La inferencia acabó con éxito, tensor de salida: ",
+        }
+    },
+
     MUNDO: {
         INICIO_LABEL: "¡Mundo iniciado!",
         FIN_LABEL: "¡Mundo acabado!",
@@ -254,6 +265,25 @@ export const i18 = {
                 }
             },
 
+
+            CONEXIONISTA: {
+
+                NOMBRE: "cadena.conexionista",
+
+                NEURONAL: {
+                    NOMBRE: "cadena.conexionista.neuronal.red",
+                },
+
+                SIMULATION_START: "Creando la red neuronal...",
+                SIMULATION_BODY: "Modelo resultante",
+                SIMULATION_END: "¡Simulación finalizada!",
+
+                RED: {
+
+                    NOMBRE: "cadena.conexionista.red",
+
+                }
+            },
         }
     }
 

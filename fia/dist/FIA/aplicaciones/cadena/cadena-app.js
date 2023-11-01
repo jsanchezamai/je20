@@ -4,7 +4,8 @@ exports.CadenaApp = void 0;
 const labels_1 = require("../../i18/labels");
 const thread_1 = require("../../thread");
 const paradigma_1 = require("../paradigma");
-const cadena_fia_red_semantica_1 = require("./simbolica/formal/cadena-fia-red-semantica");
+const cadena_fia_situada_1 = require("./situada/cadena-fia-situada");
+const cadena_fia_red_neuronal_1 = require("./conexionista/cadena-fia-red-neuronal");
 class CadenaApp extends paradigma_1.App {
     constructor() {
         super();
@@ -15,11 +16,13 @@ class CadenaApp extends paradigma_1.App {
         /**
          *
          */
-        // this.situada = new CadenaFIASituada();
-        this.simbolica = new cadena_fia_red_semantica_1.CadenaFIARedSemantica();
+        this.situada = new cadena_fia_situada_1.CadenaFIASituada();
+        // this.situada.instanciar();
+        // this.simbolica = new CadenaFIARedSemantica();
+        this.conexionista = new cadena_fia_red_neuronal_1.CadenaFiaRedNeuronal();
+        await this.conexionista.instanciar();
         const salidas = await Promise.all([
-            // this.situada.instanciar(),
-            this.simbolica.instanciar()
+        // this.simbolica.instanciar(),
         ]);
         return `${salidas.join("\n\t - ")}${labels_1.i18.APPS.CADENA.SIMULATION_END}`;
     }

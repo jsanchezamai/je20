@@ -41,6 +41,7 @@ class Grafo {
                 .replace("entidad", a.destino.nombre)
                 .replace("etiqueta", a.etiqueta.estado.nombre)
                 .replace("valor", a.etiqueta.estado.valor));
+            console.log(a.etiqueta.estado);
             //  && a.etiqueta.estado.nombre === etiqueta
             if (a.destino.nombre == destino) {
                 return a.destino;

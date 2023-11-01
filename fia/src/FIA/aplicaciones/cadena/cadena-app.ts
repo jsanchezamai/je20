@@ -1,9 +1,8 @@
-import { GenesisBlock } from "../../genesis-block";
 import { i18 } from "../../i18/labels";
 import { agentMessage } from "../../thread";
 import { App } from "../paradigma";
-import { CadenaFIARedSemantica } from "./simbolica/formal/cadena-fia-red-semantica";
 import { CadenaFIASituada } from "./situada/cadena-fia-situada";
+import { CadenaFiaRedNeuronal } from "./conexionista/cadena-fia-red-neuronal";
 
 export class CadenaApp extends App {
 
@@ -22,14 +21,17 @@ export class CadenaApp extends App {
          *
          */
         this.situada = new CadenaFIASituada();
+        // this.situada.instanciar();
 
-        this.simbolica = new CadenaFIARedSemantica();
-        this.situada.instanciar();
+        // this.simbolica = new CadenaFIARedSemantica();
+
+        this.conexionista = new CadenaFiaRedNeuronal();
+        await this.conexionista.instanciar();
 
         const salidas = await Promise.all(
             [
 
-                this.simbolica.instanciar()
+                // this.simbolica.instanciar(),
             ]
         );
 

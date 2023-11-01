@@ -13,7 +13,8 @@ exports.i18 = {
     FIA_CIENTIFICA_FUERTE_LABEL: "fuerte",
     FIA_CIENCITICA_DEBIL_LABEL: "debil",
     SISTEMA: {
-        STARTING_LABEL: "Arrancando el sistema"
+        STARTING_LABEL: "Arrancando el sistema",
+        ENTER_PARA_SEGUIR: "PULSA ENTER PARA CONTINUAR "
     },
     MENU_HEADER_LABEL: `Escoge:`,
     MENU_PROMPT_DATA_LABEL: `Escribe:`,
@@ -32,7 +33,7 @@ exports.i18 = {
     },
     SITUADA: {
         SIMULATION_START: "Hola soy un autómata situado. Voy a ejemplificar mi forma de razonar. Para ello operaré un serie de pasos recibiendo señales con mis sensores y enviando acciones.",
-        SIMULATION_BODY: "Modelo resultante",
+        SIMULATION_BODY: "Modelo resultante.\n",
         SIMULATION_END: "¡Simulación finalizada!",
         AUTOMATA: {
             NOMBRE: "situada.automata",
@@ -54,6 +55,16 @@ exports.i18 = {
                 OPCION: "\n\t\t\t - Candidato: ",
                 COMPARANDO: "\n\t\t\t - Comparando entidad:  \n\t\t\t - ...con etiqueta: y valor",
             }
+        }
+    },
+    CONEXIONISTA: {
+        NEURONAL: {
+            NOMBRE: "red-neuronal",
+            REGLA: "regla.de.red.neuronal.conexionista",
+            IDLE: "Lista para recibir inferencia, envía tensores que te devuelvo ídem. Usa una canalación.",
+            CREANDO_SESION_INFERENCIA_LABEL: "Creando sesión de inferencia para el modelo: ",
+            CARGANDO_PARAMETROS_LABEL: "Tensores de entrada: ",
+            RESPUESTA_INFERENCIA_LABEL: "La inferencia acabó con éxito, tensor de salida: ",
         }
     },
     MUNDO: {
@@ -202,6 +213,18 @@ exports.i18 = {
                 },
                 RED: {
                     NOMBRE: "cadena.simbolica.red",
+                }
+            },
+            CONEXIONISTA: {
+                NOMBRE: "cadena.conexionista",
+                NEURONAL: {
+                    NOMBRE: "cadena.conexionista.neuronal.red",
+                },
+                SIMULATION_START: "Creando la red neuronal...",
+                SIMULATION_BODY: "Modelo resultante",
+                SIMULATION_END: "¡Simulación finalizada!",
+                RED: {
+                    NOMBRE: "cadena.conexionista.red",
                 }
             },
         }

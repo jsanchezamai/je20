@@ -120,4 +120,45 @@ Una vez armado el prototipo de lenguaje (v001), ¿cómo usarlo?
 
 Vamos a implementar una cadena de producción mediante este lenguaje.
 
-Sigo en su [README]src/FIA/aplicaciones/cadena/README.md)...
+Sigo en su [README](src/FIA/aplicaciones/cadena/README.md)...
+
+Otro punto de avance será la [Inteligencia Artificial Conexionista](src/FIA/paradigmas/conexionista). El objeto de carga de modelos para el paso de Tensores (ristras de número) queda bien resuelto en onnx estableciéndose como posible estándar a la hora de convertir cualquier fuente de red neuronal a un formato inferible por nuestra aplcación. En eso sentido se agregó tanto el paquete nodo como el web y se trajeron los [ejemplos oficiales onnxjs-ort](src/FIA/engine/onnx).
+
+Además, el [paquete smparty](src/FIA/engine/smartpy) implementa el mismo servicio de carga de modelos.onnx y gestiona una inferencia por llamada.
+
+He podido hacer una implementación mínima, al menos para dejar constancia, de la IA Conexionista. El log:
+
+```
+sistema> Transfiriendo el prompt a: cadena-app
+cadena-app> Esta aplicación simula una cadena de producción. ¡Arrancando simulación!
+cadena.conexionista.red> Creando la red neuronal...
+cadena.conexionista.red> Modelo resultante: Lista para recibir inferencia, usa una canalación.
+red-neuronal> Creando sesión de inferencia para el modelo: :/FIA/aplicaciones/cadena/conexionista/model.onnx
+red-neuronal> Tensores de entrada: :1,2,3,4,5,6,7,8,9,10,11,12, 10,20,30,40,50,60,70,80,90,100,110,120
+red-neuronal> La inferencia acabó con éxito, tensor de salida: :700,800,900,1580,1840,2100,2460,2880,3300
+cadena.conexionista.red> ¡Simulación finalizada!
+cadena-app> ¡La aplicación ha concluído y se cierra!
+
+```
+
+En el log se aprecia la evolución de la app una vez se ha seleccionado simular la FIA Conexionista. Se envía una orden a partir de la configuración dinámica de la canalización:
+
+```ts
+
+    async probar(): Promise<void> {
+
+        const dato_a = Float32Array.from([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
+        const dato_b = Float32Array.from([10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120]);
+
+        await this.modelo.clasificador.canalizacion.canalizarDe2Parametros({
+            modelo: "FIA/aplicaciones/cadena/conexionista/model.onnx" ,
+            dato_a,
+            dato_b
+        })
+
+    }
+```
+
+La estrategia ha sido implementar un [clasificador](src/FIA/paradigmas/conexionista/clasificador.ts) capaz de usar [src/FIA/paradigmas/conexionista/onnx.ts](onnx) para cargar un modelo precompilado que represente una [red neuronal](src/FIA/paradigmas/conexionista/red-neuronal.ts) a la que podamos solicitarle, mediante una [canalización](src/FIA/paradigmas/conexionista/canalizacion.ts), la inferencia de un tensor a partir de otros tensores.
+
+Una vez implementados los elementos del lenguaje AlephScript [agregar a la app de ejemplo una FIA](src/FIA/aplicaciones/cadena/conexionista/cadena-fia-red-neuronal.ts) que los use para inferir a su red neuronal.

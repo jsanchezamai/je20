@@ -6,7 +6,7 @@ const labels_1 = require("../../../i18/labels");
 const thread_1 = require("../../../thread");
 const cadena_automata_1 = require("./cadena-automata");
 // export namespace IASituada {
-exports.TOPE_POSICION = 4;
+exports.TOPE_POSICION = 6;
 class CadenaFIASituada extends genesis_block_1.GenesisBlock {
     constructor() {
         super(...arguments);
@@ -22,6 +22,7 @@ class CadenaFIASituada extends genesis_block_1.GenesisBlock {
         this.automata.configurar();
         await this.automata.inicializar();
         console.log((0, thread_1.agentMessage)(this.nombre, `${labels_1.i18.SITUADA.SIMULATION_BODY}:${this.automata.mundo.modelo.imprimir()}`));
+        console.log(labels_1.i18.SISTEMA.ENTER_PARA_SEGUIR);
         return `${labels_1.i18.SITUADA.SIMULATION_END}`;
     }
 }

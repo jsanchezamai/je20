@@ -3,7 +3,6 @@ import { iFIA, FIA, GenesisBlock } from "../../genesis-block";
 import { IACientifica } from "../../paradigmas/cientifica/paradigma";
 import { IASimbolica } from "../../paradigmas/simbolica/paradigma";
 import { IASituada } from "../../paradigmas/situada/paradigma";
-import { IASituadaCadenaProduccion } from "../../aplicaciones/cadena/situada/cadena-fia-situada";
 import { IAConexionista } from "../../paradigmas/conexionista/paradigma";
 import { i18 } from "../../i18/labels";
 import { agentMessage, menuOption, systemMessage } from "../../thread";

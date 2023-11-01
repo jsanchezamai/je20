@@ -1,15 +1,7 @@
 import { GenesisBlock, Intencion, Mundo, iFIA } from "../../genesis-block";
 import { i18 } from "../../i18/labels";
-
-
-
-    export interface ICanalizacion {}
-
-    export interface IRedNeuronalArtificial {
-        clasificador: IClasificadorNumericoParametrizado;
-
-        clasificar: (c: ICanalizacion) => ISolucion;
-    }
+import { ICanalizacion } from "./canalizacion";
+import { IRedNeuronalArtificial, RedNeuronalArtificial } from "./red-neuronal";
 
     export interface IDato {}
 
@@ -31,15 +23,7 @@ import { i18 } from "../../i18/labels";
 
     }
 
-    export interface IClasificadorNumericoParametrizado {
-
-        canalizacion: ICanalizacion;
-
-    }
-
     export interface iIAConexionista extends iFIA {
-
-        red: IRedNeuronalArtificial;
 
         inferencia: (p: ICanalizacion) => ISolucion;
 
@@ -47,13 +31,22 @@ import { i18 } from "../../i18/labels";
 
     export class IAConexionista extends GenesisBlock implements iIAConexionista {
 
-        red: IRedNeuronalArtificial;
+        modelo: IRedNeuronalArtificial = new RedNeuronalArtificial();
 
         aprendizaje: (p: IAprendizaje) => IRedNeuronalArtificial;
 
-        inferencia(c: ICanalizacion): ISolucion {
-            return this.red.clasificar(c);
+        async inferencia(c: ICanalizacion): Promise<ISolucion> {
+
+            this.modelo.clasificador.canalizacion = c;
+            const solucion = await this.modelo.clasificador.canalizacion.canalizar();
+
+            return solucion as unknown as ISolucion;
         }
+
+        imprimir(): string {
+            return `${i18.CONEXIONISTA.NEURONAL.IDLE}`;
+        }
+
     }
 
 export namespace IAConexionista {
