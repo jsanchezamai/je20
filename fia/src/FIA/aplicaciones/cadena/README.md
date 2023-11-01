@@ -11,9 +11,7 @@ El producto mínimo viable no implementa toda la funcionalidad (Ver bajo enuncia
 - [FIA Situada](src/FIA/aplicaciones/cadena/cadena-fia.ts): implementa la aplicación.
 
 
-# Log de salida
-
-
+## Log de salida Situada
 
 **sistema>** Escoge:
          - [0]: Modelo: FIA
@@ -170,3 +168,151 @@ cadena> Hoy es el día: 4
 cadena> ¡Mundo acabado!
 **situada>** Modelo resultante:Modelo base. 10 días; pulso: 1 segundo
 **situada>** Final de ejecución 
+
+
+# APP: Simulación con Red Simbólica.Semantica Red
+
+Aunque el grafo de la red semántica puede construirse de distintas manera, se ha implementado una modelización sin código, vía json.
+
+La implementación actual define la red semántica en el [fichero de traducciones i18](src/FIA/i18/labels.ts) ver nodo APPS.CADENA.SIMBOLICA.DOMINIO.
+
+En la inicialización, la [FIA RedSemántica](src/FIA/paradigmas/simbolica/modelos/formal/sistema/semantica.ts) interpreta el fichero y monta la red base.
+
+La red inicializa los nodos hoja y sus arcos principales:
+
+```ts
+    cargar(red: any, entidades: IGrafo[]) {
+        /**
+         * Añadir entidades maestras
+         */
+        Object.keys(red.ENTIDADES).forEach(i => {
+
+        /**
+         * Añadir entidades del arco "subclase-de"
+         */
+        Object.keys(red.ARCOS.ESTRUCTURALES.SUBCLASE).forEach(clase_hija => {
+
+        /**
+        * Añadir entidades del arco "parte-de"
+        */
+        Object.keys(red.ARCOS.ESTRUCTURALES.PARTE).forEach(clase_padre => {
+
+        /**
+        * Añadir entidades del arco "instancia-de"
+        */
+        Object.keys(red.ARCOS.ESTRUCTURALES.INSTANCIA).forEach(clase_hija => {
+
+
+        /**
+        * Añadir entidades del arco "descriptivo"
+        */
+        Object.keys(red.ARCOS.DESCRIPTIVOS).forEach(clase_padre => {
+
+    }
+
+```
+## Log 
+
+```cadena-app> Esta aplicación simula una cadena de producción. ¡Arrancando simulación!
+cadena.simbolica.red> Creando la red semántica...
+cadena.simbolica.semantica.red> Agregando entidad: tarea
+cadena.simbolica.semantica.red> Agregando entidad: robot
+cadena.simbolica.semantica.red> Agregando entidad: objeto
+cadena.simbolica.semantica.red> Agregando entidad: propiedad
+cadena.simbolica.semantica.red> Agregando arco subclase/clase: criptoselladora/robot
+cadena.simbolica.semantica.red> Agregando arco subclase/clase: parseadora/robot
+cadena.simbolica.semantica.red> Agregando arco subclase/clase: objeto_criptosellable/objeto
+cadena.simbolica.semantica.red> Agregando arco subclase/clase: objeto_parseable/objeto
+cadena.simbolica.semantica.red> Agregando arco subclase/clase: objeto_compuesto/objeto
+cadena.simbolica.semantica.red> Agregando arco parte/clase: tarea_cadena_robot_objeto/robot
+cadena.simbolica.semantica.red> Agregando arco parte/clase: tarea_robot_objeto/robot
+cadena.simbolica.semantica.red> Agregando arco parte/clase: tarea_robot_objeto_propiedad/robot
+cadena.simbolica.semantica.red> Agregando arco parte/clase: propiedad_estado/objeto
+cadena.simbolica.semantica.red> Agregando arco parte/clase: propiedad_cripta/objeto_criptosellable
+cadena.simbolica.semantica.red> Agregando arco parte/clase: propiedad_cadena/objeto_parseable
+cadena.simbolica.semantica.red> Agregando arco parte/clase: objeto_parseable/objeto_compuesto
+cadena.simbolica.semantica.red> Agregando arco parte/clase: objeto_criptosellable/objeto_compuesto
+cadena.simbolica.semantica.red> Agregando arco instancia hija/padre: criptoselladora/robot_1
+cadena.simbolica.semantica.red> Agregando arco instancia hija/padre: criptoselladora/robot_2
+cadena.simbolica.semantica.red> Agregando arco instancia hija/padre: parseadora/robot_3
+cadena.simbolica.semantica.red> Agregando arco instancia hija/padre: parseadora/robot_4
+cadena.simbolica.semantica.red> Agregando arco instancia hija/padre: objeto_parseable/objeto_1
+cadena.simbolica.semantica.red> Agregando arco instancia hija/padre: objeto_criptosellable/objeto_2
+cadena.simbolica.semantica.red> Agregando arco instancia hija/padre: objeto_parseable/objeto_3
+cadena.simbolica.semantica.red> Agregando arco instancia hija/padre: objeto_compuesto/objeto_4
+cadena.simbolica.semantica.red> Agregando arco instancia hija/padre: propiedad/propiedad_cripta
+cadena.simbolica.semantica.red> Agregando arco instancia hija/padre: propiedad/propiedad_cadena
+cadena.simbolica.semantica.red> Agregando arco instancia hija/padre: estado/propiedad_estado
+cadena.simbolica.semantica.red> Agregando arco descriptivo destino/origen: coger/tarea_cadena_robot_objeto
+cadena.simbolica.semantica.red> Agregando arco descriptivo destino/origen: devolver/tarea_cadena_robot_objeto
+cadena.simbolica.semantica.red> Agregando arco descriptivo destino/origen: deshecha/tarea_robot_objeto
+cadena.simbolica.semantica.red> Agregando arco descriptivo destino/origen: operar/tarea_robot_objeto_propiedad
+cadena.simbolica.red> Modelo resultante:
+         - (grafo) -tarea; arcos
+         - (grafo) -robot; arcos
+         - (grafo) -objeto; arcos
+         - (grafo) -propiedad; arcos
+         - (grafo) -criptoselladora; arcos
+                 - <criptoselladora> es subclase de <robot>
+         - (grafo) -parseadora; arcos
+                 - <parseadora> es subclase de <robot>
+         - (grafo) -objeto_criptosellable; arcos
+                 - <objeto_criptosellable> es subclase de <objeto>
+                 - <objeto_compuesto> tiene la parte: <objeto_criptosellable>
+         - (grafo) -objeto_parseable; arcos
+                 - <objeto_parseable> es subclase de <objeto>
+                 - <objeto_compuesto> tiene la parte: <objeto_parseable>
+         - (grafo) -objeto_compuesto; arcos
+                 - <objeto_compuesto> es subclase de <objeto>
+         - (grafo) -tarea_cadena_robot_objeto; arcos
+                 - <robot> tiene la parte: <tarea_cadena_robot_objeto>
+         - (grafo) -tarea_robot_objeto; arcos
+                 - <robot> tiene la parte: <tarea_robot_objeto>
+         - (grafo) -tarea_robot_objeto_propiedad; arcos
+                 - <robot> tiene la parte: <tarea_robot_objeto_propiedad>
+         - (grafo) -propiedad_estado; arcos
+                 - <objeto> tiene la parte: <propiedad_estado>
+                 - <propiedad_estado> es instancia de <estado>
+         - (grafo) -propiedad_cripta; arcos
+                 - <objeto_criptosellable> tiene la parte: <propiedad_cripta>
+                 - <propiedad_cripta> es instancia de <propiedad>
+         - (grafo) -propiedad_cadena; arcos
+                 - <objeto_parseable> tiene la parte: <propiedad_cadena>
+                 - <propiedad_cadena> es instancia de <propiedad>
+         - (grafo) -robot_1; arcos
+                 - <robot_1> es instancia de <criptoselladora>
+         - (grafo) -robot_2; arcos
+                 - <robot_2> es instancia de <criptoselladora>
+         - (grafo) -robot_3; arcos
+                 - <robot_3> es instancia de <parseadora>
+         - (grafo) -robot_4; arcos
+                 - <robot_4> es instancia de <parseadora>
+         - (grafo) -objeto_1; arcos
+                 - <objeto_1> es instancia de <objeto_parseable>
+         - (grafo) -objeto_2; arcos
+                 - <objeto_2> es instancia de <objeto_criptosellable>
+         - (grafo) -objeto_3; arcos
+                 - <objeto_3> es instancia de <objeto_parseable>
+         - (grafo) -objeto_4; arcos
+                 - <objeto_4> es instancia de <objeto_compuesto>
+         - (grafo) -estado; arcos
+         - (grafo) -coger; arcos
+                 - <tarea_cadena_robot_objeto>: <coger>. <Tomar un objeto de la cinta>
+         - (grafo) -devolver; arcos
+                 - <tarea_cadena_robot_objeto>: <devolver>. <Devolver un objeto a la cinta>
+         - (grafo) -deshecha; arcos
+                 - <tarea_robot_objeto>: <deshecha>. <Tirar un objeto (no devolverlo a la cinta)>
+         - (grafo) -operar; arcos
+                 - <tarea_robot_objeto_propiedad>: <operar>. <Aplicar trabajos a un objeto>
+cadena-app> ¡Simulación finalizada!¡La aplicación ha concluído y se cierra!
+sistema> Escoge:
+         - [0]: Modelo: FIA
+         - [1]: Modelo: FIA_Genesis
+         - [2]: Modelo: debil
+         - [3]: Modelo: fuerte
+         - [4]: Modelo: simbolica
+         - [5]: Modelo: situada
+         - [6]: Modelo: conexionista
+         - [7]: Modelo: cadena-app
+         - [99]: Not today! ¡Cerrar!, please, bye!
+``````

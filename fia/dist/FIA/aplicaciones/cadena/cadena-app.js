@@ -16,7 +16,7 @@ class CadenaApp extends paradigma_1.App {
          *
          */
         // this.situada = new CadenaFIASituada();
-        this.simbolica = new cadena_fia_red_semantica_1.CadenaRedSemantica();
+        this.simbolica = new cadena_fia_red_semantica_1.CadenaFIARedSemantica();
         const salidas = await Promise.all([
             // this.situada.instanciar(),
             this.simbolica.instanciar()

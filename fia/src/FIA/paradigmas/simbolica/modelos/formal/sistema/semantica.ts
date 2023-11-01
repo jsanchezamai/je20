@@ -38,6 +38,15 @@ export class RelacionEstructural implements IRelacionEstructural {
     valor = "";
 }
 
+export interface IRelacionDescriptiva extends IEstado {
+    valor: "";
+}
+
+export class RelacionDescriptiva implements IRelacionDescriptiva {
+    valor: "";
+    nombre: string;
+}
+
 export interface IEtiqueta {
     estado: IEstado;
 }
@@ -54,6 +63,10 @@ export interface IEtiquetaDescriptiva extends IEtiqueta {
     estado: IConcepto | IEntidad;
 }
 
+export class EtiquetaDescriptiva implements IEtiquetaDescriptiva {
+    estado: IRelacionDescriptiva = new RelacionDescriptiva();
+}
+
 export interface IArco extends InferenciaRelacion {
 
     etiqueta: IEtiqueta;
@@ -67,6 +80,15 @@ export interface IArcoDescriptivo extends IArco {
     destino: IGrafo;
 
 }
+
+export class ArcoDescriptivo implements IArcoDescriptivo {
+
+    etiqueta = new EtiquetaDescriptiva();
+    destino: IGrafo;
+    dominio: IDominio;
+
+}
+
 
 export interface IArcoEstructural extends IArco {
 
@@ -210,7 +232,7 @@ export class RedSemantica extends Formal implements IRedSemantica {
                 grafoHija.arcos.estado.push(arco);
 
                 console.log(agentMessage(this.nombre,
-                    `${i18.APPS.CADENA.SIMBOLICA.AGREGANDO_SUBCLASES_LABEL}${grafoHija.nombre}/${grafoPadre.nombre}`
+                    `${i18.APPS.CADENA.SIMBOLICA.AGREGANDO_ARCOS_SUBCLASES_LABEL}${grafoHija.nombre}/${grafoPadre.nombre}`
                 ));
 
             });
@@ -264,7 +286,121 @@ export class RedSemantica extends Formal implements IRedSemantica {
                 grafoHijo.arcos.estado.push(arco);
 
                 console.log(agentMessage(this.nombre,
-                    `${i18.APPS.CADENA.SIMBOLICA.AGREGANDO_PARTE_LABEL}${grafoHijo.nombre}/${grafoPadre.nombre}`
+                    `${i18.APPS.CADENA.SIMBOLICA.AGREGANDO_ARCOS_PARTE_LABEL}${grafoHijo.nombre}/${grafoPadre.nombre}`
+                ));
+
+            });
+
+        });
+
+        /**
+        * Añadir entidades del arco "instancia-de"
+        */
+        Object.keys(red.ARCOS.ESTRUCTURALES.INSTANCIA).forEach(clase_hija => {
+
+            const etiqueta_texto = red.ARCOS.ESTRUCTURALES.INSTANCIA.texto;
+            if (clase_hija === "texto") {
+                return;
+            }
+
+            const existing = entidades.find(e => e.nombre === clase_hija);
+
+            const grafoHijo = existing || new CadenaGrafo();
+            if (existing) {
+
+            } else {
+                entidades.push(grafoHijo);
+                grafoHijo.nombre = clase_hija;
+            }
+
+            const padres = red.ARCOS.ESTRUCTURALES.INSTANCIA[clase_hija];
+
+            Object.keys(padres).forEach(clase_padre => {
+
+                const existing2 = entidades.find(e => e.nombre === clase_padre);
+
+                const grafoPadre = existing2 || new CadenaGrafo();
+                if (existing2) {
+
+                } else {
+                    entidades.push(grafoPadre);
+                    grafoPadre.nombre = clase_padre;
+                }
+
+                const relacion = new RelacionEstructural();
+
+                relacion.nombre =  etiqueta_texto.replace("clave", grafoHijo.nombre).replace("valor", grafoPadre.nombre);
+
+                const etiqueta = new EtiquetaEstructural();
+                etiqueta.estado = relacion;
+
+                const arco = new ArcoEstructural();
+                arco.destino = grafoPadre;
+                arco.etiqueta = etiqueta;
+                grafoHijo.arcos.estado.push(arco);
+
+                console.log(agentMessage(this.nombre,
+                    `${i18.APPS.CADENA.SIMBOLICA.AGREGANDO_ARCOS_INSTANCIA_LABEL}${grafoPadre.nombre}/${grafoHijo.nombre}`
+                ));
+
+            });
+
+        });
+
+        /**
+        * Añadir entidades del arco "descriptivo"
+        */
+        Object.keys(red.ARCOS.DESCRIPTIVOS).forEach(clase_padre => {
+
+            const existing = entidades.find(e => e.nombre === clase_padre);
+
+            const grafoPadre = existing || new CadenaGrafo();
+            if (existing) {
+
+            } else {
+                entidades.push(grafoPadre);
+                grafoPadre.nombre = clase_padre;
+            }
+
+            const partes = red.ARCOS.DESCRIPTIVOS[clase_padre];
+
+            let etiqueta_texto = "";
+            Object.keys(partes).forEach(clase_hijo => {
+
+                if (clase_hijo === "texto") {
+                    etiqueta_texto = red.ARCOS.DESCRIPTIVOS[clase_padre].texto;
+                    return;
+                }
+
+                const existing2 = entidades.find(e => e.nombre === clase_hijo);
+
+                const grafoHijo = existing2 || new CadenaGrafo();
+                if (existing2) {
+
+                } else {
+                    entidades.push(grafoHijo);
+                    grafoHijo.nombre = clase_hijo;
+                }
+
+                const relacion = new RelacionDescriptiva();
+
+                const relacionLabel = red.ARCOS.DESCRIPTIVOS[clase_padre][clase_hijo];
+                relacion.nombre =  etiqueta_texto
+                    .replace("tarea", grafoPadre.nombre)
+                    .replace("clave", grafoHijo.nombre)
+                    .replace("info", relacionLabel);
+
+
+                const etiqueta = new EtiquetaDescriptiva();
+                etiqueta.estado = relacion;
+
+                const arco = new ArcoDescriptivo();
+                arco.destino = grafoPadre;
+                arco.etiqueta = etiqueta;
+                grafoHijo.arcos.estado.push(arco);
+
+                console.log(agentMessage(this.nombre,
+                    `${i18.APPS.CADENA.SIMBOLICA.AGREGANDO_ARCOS_DESCRIPTIVOS_LABEL}${grafoHijo.nombre}/${grafoPadre.nombre}`
                 ));
 
             });

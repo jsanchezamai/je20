@@ -110,16 +110,14 @@ export const i18 = {
                 SIMULATION_END: "¡Simulación finalizada!",
 
                 AGREGANDO_ENTIDADES_LABEL: "Agregando entidad: ",
-                AGREGANDO_SUBCLASES_LABEL: "Agregando subclase/clase: ",
-                AGREGANDO_PARTE_LABEL: "Agregando parte/clase: ",
+                AGREGANDO_ARCOS_SUBCLASES_LABEL: "Agregando arco subclase/clase: ",
+                AGREGANDO_ARCOS_PARTE_LABEL: "Agregando arco parte/clase: ",
+                AGREGANDO_ARCOS_INSTANCIA_LABEL: "Agregando arco instancia hija/padre: ",
+                AGREGANDO_ARCOS_DESCRIPTIVOS_LABEL: "Agregando arco descriptivo destino/origen: ",
 
                 DOMINIO: {
-                    CONCEPTOS: {
-
-                        tarea: "tarea",
-
-                    },
                     ENTIDADES: {
+                        tarea: "tarea",
                         robot: "robot",
                         objeto: "objeto",
                         propiedad: "propiedad"
@@ -127,17 +125,17 @@ export const i18 = {
                     ARCOS: {
                         DESCRIPTIVOS: {
                             tarea_cadena_robot_objeto: {
-                                texto: "El robot <tarea> el <objeto> en la <cadena>",
-                                coger: "coge",
-                                devolver: "devuelve"
+                                texto: "<tarea>: <clave>. <info>",
+                                coger: "Tomar un objeto de la cinta",
+                                devolver: "Devolver un objeto a la cinta"
                             },
                             tarea_robot_objeto:  {
-                                texto: "El robot <tarea> el <objeto>",
-                                deshecha: "deshechar"
+                                texto: "<tarea>: <clave>. <info>",
+                                deshecha: "Tirar un objeto (no devolverlo a la cinta)"
                             },
                             tarea_robot_objeto_propiedad:  {
-                                texto: "El robot <tarea> la <propiedad> en el <objeto>",
-                                operar: "opera"
+                                texto: "<tarea>: <clave>. <info>",
+                                operar: "Aplicar trabajos a un objeto"
                             }
                         },
                         ESTRUCTURALES: {
