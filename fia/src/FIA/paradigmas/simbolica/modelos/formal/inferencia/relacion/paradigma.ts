@@ -1,4 +1,4 @@
-import { Inferencia, IInferenciaRelacion, IDominio, Dominio, IInferencia } from "../../../../paradigma";
+import { Inferencia, IInferenciaRelacion, IDominio, Dominio, IInferencia, IBaseConocimiento } from "../../../../paradigma";
 import { IGrafo } from "../../sistema/semantica/grafo";
 
 export interface ISolucion {}
@@ -34,7 +34,18 @@ export class InferenciaRelacion
             this.dominio.base[this.claveDominio][this.claveContexto] = g;
         }
 
+        activar(): { parametros: IBaseConocimiento, contexto: IGrafo} {
+            return {
+                parametros: this.dominio.base[this.claveDominio][this.claveEntrada],
+                contexto: this.dominio.base[this.claveDominio][this.claveContexto]
+            }
+        }
+
         evaluar(): IInferencia {
             return this;
+        }
+
+        imprimir(): string {
+            return JSON.stringify(Object.keys(this.dominio.base[this.claveDominio]).join(" - "), null, "\t");
         }
 }

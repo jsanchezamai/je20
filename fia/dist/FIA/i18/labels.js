@@ -45,7 +45,8 @@ exports.i18 = {
     },
     SIMBOLICA: {
         SEMANTICA: {
-            NOMBRE: "red-semantica"
+            NOMBRE: "red-semantica",
+            REGLA: "regla-de-red-semantica"
         }
     },
     MUNDO: {

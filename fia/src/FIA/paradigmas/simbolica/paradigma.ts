@@ -118,6 +118,7 @@ import { IProblema, IRequisitos } from "./modelos/formal/inferencia/relacion/par
             this.reglas.forEach(regla => {
 
                 const inferencia = regla.evaluar();
+
                 log(inferencia);
 
             })

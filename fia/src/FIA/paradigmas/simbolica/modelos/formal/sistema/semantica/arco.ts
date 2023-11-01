@@ -1,5 +1,3 @@
-import { IDominio, IInferencia } from "../../../../paradigma";
-import { InferenciaRelacion } from "../../inferencia/relacion/paradigma";
 import { IEntidad, IEstado, IConcepto, IGrafo } from "./grafo";
 
 export interface IRelacionEstructural extends IEstado {

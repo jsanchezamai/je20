@@ -11,8 +11,10 @@ const traductor_1 = require("../../../../../../i18/traductor");
 const arcos_1 = require("./arcos");
 const grafo_1 = require("./grafo");
 class ReglaRed extends paradigma_2.InferenciaRelacion {
-    configurar(g, inferencia) {
-        Object;
+    evaluar() {
+        const activar = this.activar();
+        console.log(labels_1.i18.SIMBOLICA.SEMANTICA.REGLA, "> ReglaRed", "Entidades origen: ", activar.contexto.arcos.estado.length, "Parametros: ", activar.parametros);
+        return this;
     }
 }
 exports.ReglaRed = ReglaRed;
@@ -198,11 +200,16 @@ class RedSemantica extends paradigma_3.Formal {
             casos.forEach((c, index) => {
                 console.log((0, thread_1.agentMessage)(this.nombre, `${labels_1.i18.APPS.CADENA.TEST.CASO.START_LABEL}:${index}`));
                 const regla = new ReglaRed();
-                const dominio = new paradigma_1.Dominio(c);
-                regla.configurar(this.base, dominio);
-                const inferencia = Object.keys(c);
-                console.log((0, thread_1.agentMessage)(this.nombre, `${labels_1.i18.APPS.CADENA.TEST.CASO.BUCLE.CREAR_REGLA_LABEL}:${index}:${inferencia}
-                     ${JSON.stringify(dominio.base)}
+                const parametros = new paradigma_1.Dominio(c);
+                const dominio = new grafo_1.Grafo();
+                this.entidades.forEach(e => {
+                    const arco = new arcos_1.Arco();
+                    arco.destino = e;
+                    dominio.arcos.estado.push(arco);
+                });
+                regla.configurar(dominio, parametros);
+                console.log((0, thread_1.agentMessage)(this.nombre, `${labels_1.i18.APPS.CADENA.TEST.CASO.BUCLE.CREAR_REGLA_LABEL}:${index}
+                     ${regla.imprimir()}
                     `));
                 this.motor.reglas.push(regla);
             });

@@ -1,6 +1,6 @@
 import { i18 } from "../../../../i18/labels";
 import { Grafo, IGrafo } from "../../../../paradigmas/simbolica/modelos/formal/sistema/semantica/grafo";
-import { RedSemantica, ReglaRed } from "../../../../paradigmas/simbolica/modelos/formal/sistema/semantica/paradigma";
+import { RedSemantica } from "../../../../paradigmas/simbolica/modelos/formal/sistema/semantica/red";
 import { agentMessage } from "../../../../thread";
 import { CadenaFIASimbolica } from "../cadena-fia-simbolica";
 

@@ -1,5 +1,5 @@
 import { IBaseConocimiento } from "../../../../paradigma";
-import { IArcos, Arcos } from "./arcos";
+import { IArcos, Arcos } from "./arco";
 
 
 export interface IEstado {
