@@ -135,7 +135,6 @@ import { Subject } from "rxjs";
                 agentMessage(i18.FIA_SITUADA_LABEL,
                 `${i18.SITUADA.SIMULATION_BODY}:${modelo.imprimir()}`)
             );
-
             return `${i18.SITUADA.SIMULATION_END}`;
         }
     }

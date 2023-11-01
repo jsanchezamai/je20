@@ -17,7 +17,8 @@ export const i18 = {
     FIA_CIENCITICA_DEBIL_LABEL: "debil",
 
     SISTEMA: {
-        STARTING_LABEL: "Arrancando el sistema"
+        STARTING_LABEL: "Arrancando el sistema",
+        ENTER_PARA_SEGUIR: "PULSA ENTER PARA CONTINUAR "
     },
 
     MENU_HEADER_LABEL: `Escoge:`,
@@ -42,7 +43,7 @@ export const i18 = {
 
     SITUADA: {
         SIMULATION_START: "Hola soy un autómata situado. Voy a ejemplificar mi forma de razonar. Para ello operaré un serie de pasos recibiendo señales con mis sensores y enviando acciones.",
-        SIMULATION_BODY: "Modelo resultante",
+        SIMULATION_BODY: "Modelo resultante.\n",
         SIMULATION_END: "¡Simulación finalizada!",
         AUTOMATA: {
             NOMBRE: "situada.automata",

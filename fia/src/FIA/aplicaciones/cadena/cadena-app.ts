@@ -21,12 +21,14 @@ export class CadenaApp extends App {
         /**
          *
          */
-        // this.situada = new CadenaFIASituada();
+        this.situada = new CadenaFIASituada();
+
         this.simbolica = new CadenaFIARedSemantica();
+        this.situada.instanciar();
 
         const salidas = await Promise.all(
             [
-                // this.situada.instanciar(),
+
                 this.simbolica.instanciar()
             ]
         );

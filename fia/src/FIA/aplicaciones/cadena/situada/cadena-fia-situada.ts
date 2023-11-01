@@ -7,7 +7,7 @@ import { CadenaAutomata } from "./cadena-automata";
 
 // export namespace IASituada {
 
-    export const TOPE_POSICION = 4;
+    export const TOPE_POSICION = 6;
 
     export class CadenaFIASituada extends GenesisBlock implements iIASituada {
 
@@ -30,7 +30,7 @@ import { CadenaAutomata } from "./cadena-automata";
                 agentMessage(this.nombre,
                 `${i18.SITUADA.SIMULATION_BODY}:${this.automata.mundo.modelo.imprimir()}`)
             );
-
+            console.log(i18.SISTEMA.ENTER_PARA_SEGUIR);
             return `${i18.SITUADA.SIMULATION_END}`;
         }
     }
