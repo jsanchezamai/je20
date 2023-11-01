@@ -9,11 +9,22 @@ import { IProblema, IRequisitos } from "./modelos/formal/inferencia/relacion/par
      * INFERENCIA
      */
     export interface IDominio {
+        base: IBaseConocimiento
+    }
+
+    export class Dominio implements IDominio {
+
+        constructor(public base: IBaseConocimiento){}
 
     }
 
     export interface IInferencia {
+
         dominio: IDominio;
+
+        configurar(b: IBaseConocimiento, parametros: IDominio): void;
+
+        evaluar: () => IInferencia;
     }
 
     export interface IInferenciaConcepto extends IInferencia {};
@@ -23,8 +34,23 @@ import { IProblema, IRequisitos } from "./modelos/formal/inferencia/relacion/par
     export interface IInferenciaAccion extends IInferencia {};
 
     export class Inferencia implements IInferencia {
-        dominio: IDominio;
-}
+
+        dominio: IDominio = new Dominio({});
+
+        claveDominio = "inferencias";
+        claveContexto = "contexto";
+        claveEntrada = "parametros";
+        claveSalida = "evaluacion";
+
+        configurar(b: IBaseConocimiento, d: IDominio): void {
+            this.dominio = d;
+        }
+
+        evaluar(): IInferencia {
+            return this;
+        }
+
+    }
 
     /**
      * REGLAS
@@ -48,7 +74,9 @@ import { IProblema, IRequisitos } from "./modelos/formal/inferencia/relacion/par
      */
     export interface IReglaLogica extends IInferenciaRelacion {}
 
-    export interface IReglaRed extends IInferenciaRelacion {}
+    export interface IReglaRed extends IInferenciaRelacion {
+
+    }
 
     export interface IReglaDependencia extends IInferenciaRelacion {}
 
@@ -68,12 +96,37 @@ import { IProblema, IRequisitos } from "./modelos/formal/inferencia/relacion/par
      */
 
 
-    export interface IBaseConocimiento extends IDominio {
+    export interface IBaseConocimiento {
 
 
     }
 
     export interface IMotorInferencia extends IDominio {
+        reglas: Inferencia[]
+
+        arrancar(log: (string) => void): void;
+        trasDetenerse(log: (string) => void): void
+    }
+
+    export class MotorInferencia implements IMotorInferencia {
+
+        base: IBaseConocimiento;
+        reglas: Inferencia[] = []
+
+        arrancar(log: (string) => void): void {
+
+            this.reglas.forEach(regla => {
+
+                const inferencia = regla.evaluar();
+                log(inferencia);
+
+            })
+        }
+
+        trasDetenerse(log: (string: any) => void): void {
+            log("MotorInferencia.Detenido");
+        }
+
     }
 
     export interface IEstrategiaControl extends IDominio {

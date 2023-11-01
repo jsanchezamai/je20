@@ -82,6 +82,22 @@ export const i18 = {
             SIMULATION_BODY: "Modelo resultante",
             SIMULATION_END: "¡La aplicación ha concluído y se cierra!",
 
+            TEST: {
+                PROBAR_START_LABEL: "Se van a lanzar una serie de inferencias sobre la red...",
+                PROBAR_END_LABEL: "Test de la red semántica finalizado",
+
+                CASO: {
+                    START_LABEL: "\n\t - Lanzando caso: ",
+                    BODY_LABEL: "\n\t - Evaluando caso: ",
+                    END_LABEL: "\n\t - Resultado caso: ",
+
+                    BUCLE: {
+                        CREAR_REGLA_LABEL: "Creada regla:"
+                    }
+                }
+
+            },
+
             SITUADA: {
                 NOMBRE: "cadena.situada",
 
@@ -120,29 +136,57 @@ export const i18 = {
                         tarea: "tarea",
                         robot: "robot",
                         objeto: "objeto",
-                        propiedad: "propiedad"
+                        propiedad: "propiedad",
+                        cadena: "cadena",
+                        almacen: "almacen",
                     },
                     ARCOS: {
                         DESCRIPTIVOS: {
-                            tarea_cadena_robot_objeto: {
-                                texto: "<tarea>: <clave>. <info>",
-                                coger: "Tomar un objeto de la cinta",
-                                devolver: "Devolver un objeto a la cinta"
+                            tarea_cadena_robot_objeto_almacen: {
+                                parametros: {
+                                    tarea: "",
+                                    cadena: "",
+                                    robot: "",
+                                    objeto: "",
+                                    almacen: ""
+                                },
+                                desencadenar: "Tarea: <clave>. Agente <robot>: <tarea> <objeto> entre <almacen> y <cadena>.",
+                                encadenar: "Tarea: <clave>. Agente <robot>: <tarea> <objeto> entre <almacen> y <cadena>."
                             },
-                            tarea_robot_objeto:  {
-                                texto: "<tarea>: <clave>. <info>",
-                                deshecha: "Tirar un objeto (no devolverlo a la cinta)"
+                            tarea_robot_objeto_almacen:  {
+                                parametros: {
+                                    robot: "",
+                                    objeto: "",
+                                    almacen: ""
+                                },
+                                deshechar: "Tarea: <clave>. Agente <robot>: <tarea>: <objeto> al lugar <almacen>.",
                             },
                             tarea_robot_objeto_propiedad:  {
-                                texto: "<tarea>: <clave>. <info>",
-                                operar: "Aplicar trabajos a un objeto"
+                                parametros: {
+                                    robot: "",
+                                    objeto: "",
+                                    propiedad: ""
+                                },
+                                operar: "Tarea: <clave>. Agente <robot>: <tarea>: <propiedad> de <objeto>",
                             }
                         },
                         ESTRUCTURALES: {
                             INSTANCIA: {
                                 texto: "<clave> es instancia de <valor>",
+
+                                cadena_1: { cadena: "cadena" },
+
+                                almacen_1: { almacen: "almacen" },
+
+                                entrada: { almacen: "almacen" },
+                                salida: { almacen: "almacen" },
+                                basura: { almacen: "almacen"},
+
+                                reponerdor: { reponedor: "reponedor"},
+
                                 robot_1: { criptoselladora: "criptoselladora"},
                                 robot_2: { criptoselladora: "criptoselladora"},
+
                                 robot_3: { parseadora: "parseadora"},
                                 robot_4: { parseadora: "parseadora"},
 
@@ -179,6 +223,7 @@ export const i18 = {
                             SUBCLASE: {
                                 texto: "<clave> es subclase de <valor>",
 
+                                reponedor: { robot: "robot" },
                                 criptoselladora: { robot: "robot" },
                                 parseadora: { robot: "robot" },
 

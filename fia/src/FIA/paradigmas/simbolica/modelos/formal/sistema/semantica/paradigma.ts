@@ -1,149 +1,15 @@
-import { IBaseConocimiento, IDominio, IModeloFormal, IMotorInferencia, IReglaRed, Inferencia } from "../../../paradigma";
-import { Computable } from "../../computable/paradigma";
-import { InferenciaRelacion } from "../inferencia/relacion/paradigma";
-import { Formal } from "../paradigma";
-import { Estado } from '../../../../situada/paradigma';
-import { CadenaGrafo } from "../../../../../aplicaciones/cadena/simbolica/formal/cadena-fia-red-semantica";
-import { i18 } from "../../../../../i18/labels";
-import { agentMessage } from "../../../../../thread";
-
-export interface IEstado {
-    nombre: string;
-    valor: string;
-}
-
-export interface IConcepto extends IEstado {
-}
-
-export interface IEntidad extends IEstado {
-    imprimir(): void;
-}
-
-export class Entidad implements IEntidad {
-    nombre = "entidad";
-    valor = "entidad";
-
-    imprimir() {
-        return this.nombre;
-    }
-
-}
-
-export interface IRelacionEstructural extends IEstado {
-    valor: "subclase-de" | "instancia-de" | "parte-de" | string;
-}
-
-export class RelacionEstructural implements IRelacionEstructural {
-    nombre: string;
-    valor = "";
-}
-
-export interface IRelacionDescriptiva extends IEstado {
-    valor: "";
-}
-
-export class RelacionDescriptiva implements IRelacionDescriptiva {
-    valor: "";
-    nombre: string;
-}
-
-export interface IEtiqueta {
-    estado: IEstado;
-}
-
-export interface IEtiquetaEstructural extends IEtiqueta {
-    estado: IRelacionEstructural;
-}
-
-export class EtiquetaEstructural implements IEtiquetaEstructural {
-    estado: IRelacionEstructural = new RelacionEstructural();
-}
-
-export interface IEtiquetaDescriptiva extends IEtiqueta {
-    estado: IConcepto | IEntidad;
-}
-
-export class EtiquetaDescriptiva implements IEtiquetaDescriptiva {
-    estado: IRelacionDescriptiva = new RelacionDescriptiva();
-}
-
-export interface IArco extends InferenciaRelacion {
-
-    etiqueta: IEtiqueta;
-    destino: IGrafo;
-
-}
-
-export interface IArcoDescriptivo extends IArco {
-
-    etiqueta: IEtiquetaDescriptiva;
-    destino: IGrafo;
-
-}
-
-export class ArcoDescriptivo implements IArcoDescriptivo {
-
-    etiqueta = new EtiquetaDescriptiva();
-    destino: IGrafo;
-    dominio: IDominio;
-
-}
-
-
-export interface IArcoEstructural extends IArco {
-
-    etiqueta: IEtiquetaEstructural;
-    destino: IGrafo;
-
-}
-
-export class ArcoEstructural implements IArcoEstructural {
-
-    etiqueta = new EtiquetaEstructural();
-    destino: IGrafo;
-    dominio: IDominio;
-
-}
-
-export interface IArcos {
-
-    estado: IArco[];
-
-}
-
-export class Arcos implements IArcos {
-    estado = [];
-}
-
-export interface IGrafo extends IBaseConocimiento {
-
-    nombre: string;
-
-    arcos: IArcos;
-
-    imprimir(): string;
-
-}
-
-export class Grafo implements IGrafo {
-
-    nombre: string;
-
-    arcos: IArcos = new Arcos();
-
-    imprimir(): string {
-
-        let out = "";
-        out += "\n\t - (grafo) -" + this.nombre + "; arcos";
-        this.arcos.estado.forEach(e => {
-            out += "\n\t\t - " + e.etiqueta.estado.nombre;
-        });
-        return out;
-    }
-
-}
+import { Dominio, IDominio, IModeloFormal, IReglaRed, MotorInferencia } from "../../../../paradigma";
+import { InferenciaRelacion } from "../../inferencia/relacion/paradigma";
+import { Formal } from "../../paradigma";
+import { CadenaGrafo } from "../../../../../../aplicaciones/cadena/simbolica/formal/cadena-fia-red-semantica";
+import { i18 } from "../../../../../../i18/labels";
+import { agentMessage } from "../../../../../../thread";
+import { Traductor } from "../../../../../../i18/traductor";
+import { RelacionEstructural, EtiquetaEstructural, ArcoEstructural, RelacionDescriptiva, EtiquetaDescriptiva, ArcoDescriptivo } from "./arcos";
+import { IGrafo, Grafo } from "./grafo";
 
 export class ReglaRed extends InferenciaRelacion implements IReglaRed {
+
 
 }
 
@@ -152,15 +18,19 @@ export interface IRedSemantica extends IModeloFormal {
     cargar(red: Set<string>, entidades: IGrafo[]);
 
 }
+
 export class RedSemantica extends Formal implements IRedSemantica {
+
+    entidades: IGrafo[] = [];
 
     nombre = i18.SIMBOLICA.SEMANTICA.NOMBRE;
 
     base = new Grafo();
-    motor = new ReglaRed();
+    motor = new MotorInferencia();
 
 
-    cargar(red: any, entidades: IGrafo[]) {
+    cargar(red: any) {
+        const entidades = this.entidades; // árbol a grafo
         /**
          * Añadir entidades maestras
          */
@@ -179,7 +49,7 @@ export class RedSemantica extends Formal implements IRedSemantica {
             console.log(agentMessage(this.nombre,
                 `${i18.APPS.CADENA.SIMBOLICA.AGREGANDO_ENTIDADES_LABEL}${valor}`
             ));
-            entidades.push(entidad);
+            this.entidades.push(entidad);
 
         });
 
@@ -207,7 +77,7 @@ export class RedSemantica extends Formal implements IRedSemantica {
 
             Object.keys(padres).forEach(clase_padre => {
 
-                const grafoPadre = entidades.find(e => e.nombre === clase_padre);
+                const grafoPadre = this.entidades.find(e => e.nombre === clase_padre);
 
                 if (!grafoPadre) {
                     console.log(
@@ -364,11 +234,17 @@ export class RedSemantica extends Formal implements IRedSemantica {
 
             const partes = red.ARCOS.DESCRIPTIVOS[clase_padre];
 
-            let etiqueta_texto = "";
+            let parametros;
             Object.keys(partes).forEach(clase_hijo => {
 
-                if (clase_hijo === "texto") {
-                    etiqueta_texto = red.ARCOS.DESCRIPTIVOS[clase_padre].texto;
+                if (clase_hijo === "parametros") {
+                    const partes = red.ARCOS.DESCRIPTIVOS[clase_padre];
+                    parametros = partes[clase_hijo];
+                    return;
+                }
+
+                if (!parametros) {
+                    console.log("ERROR> Simbolica.Formal.Sistema.Semantica.CargarArcosDescriptivos.Error en el fichero de traducción. El primer nodo debe ser  'parametros'", clase_hijo);
                     return;
                 }
 
@@ -382,14 +258,10 @@ export class RedSemantica extends Formal implements IRedSemantica {
                     grafoHijo.nombre = clase_hijo;
                 }
 
+                const etiqueta_texto = partes[clase_hijo];
+
                 const relacion = new RelacionDescriptiva();
-
-                const relacionLabel = red.ARCOS.DESCRIPTIVOS[clase_padre][clase_hijo];
-                relacion.nombre =  etiqueta_texto
-                    .replace("tarea", grafoPadre.nombre)
-                    .replace("clave", grafoHijo.nombre)
-                    .replace("info", relacionLabel);
-
+                relacion.nombre =  new Traductor().crearTextoAyuda(clase_hijo, parametros, etiqueta_texto);;
 
                 const etiqueta = new EtiquetaDescriptiva();
                 etiqueta.estado = relacion;
@@ -406,6 +278,51 @@ export class RedSemantica extends Formal implements IRedSemantica {
             });
 
         });
+    }
+
+    probar(casos: object[]) {
+
+        return new Promise((resolve, reject) => {
+
+            console.log(agentMessage(this.nombre, `${i18.APPS.CADENA.TEST.PROBAR_START_LABEL}:${""}`));
+
+            casos.forEach((c, index) => {
+
+                console.log(agentMessage(this.nombre, `${i18.APPS.CADENA.TEST.CASO.START_LABEL}:${index}`));
+
+                const regla = new ReglaRed();
+
+                const dominio = new Dominio(c);
+                regla.configurar(this.base, dominio);
+
+                const inferencia = Object.keys(c);
+                console.log(agentMessage(this.nombre,
+                    `${i18.APPS.CADENA.TEST.CASO.BUCLE.CREAR_REGLA_LABEL}:${index}:${inferencia}
+                     ${JSON.stringify(regla.dominio)}
+                    `
+                ));
+
+                this.motor.reglas.push(regla);
+
+            });
+
+            this.motor.arrancar((info) => {
+                console.log(agentMessage(this.nombre, `${i18.APPS.CADENA.TEST.CASO.BODY_LABEL}:${JSON.stringify(info)}`));
+            });
+
+            this.motor.trasDetenerse(() => {
+                console.log(agentMessage(this.nombre, `${i18.APPS.CADENA.TEST.PROBAR_END_LABEL}:${""}`));
+                resolve("> forma.sistema.semantica.paradigma.RedSemantica.probar, finalizó con éxito");
+            });
+
+            setTimeout(
+                () => reject("forma.sistema.semantica.paradigma.RedSemantica.probar, tiempo expirado!")
+                , 5000
+            );
+
+
+        });
+
     }
 
 }

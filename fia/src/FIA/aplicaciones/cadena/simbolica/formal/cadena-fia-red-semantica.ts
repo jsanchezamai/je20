@@ -1,16 +1,12 @@
 import { i18 } from "../../../../i18/labels";
-import { Grafo, IGrafo, RedSemantica } from "../../../../paradigmas/simbolica/modelos/formal/sistema/semantica";
+import { Grafo, IGrafo } from "../../../../paradigmas/simbolica/modelos/formal/sistema/semantica/grafo";
+import { RedSemantica, ReglaRed } from "../../../../paradigmas/simbolica/modelos/formal/sistema/semantica/paradigma";
 import { agentMessage } from "../../../../thread";
 import { CadenaFIASimbolica } from "../cadena-fia-simbolica";
 
-export class CadenaGrafo extends Grafo {
-
-
-}
+export class CadenaGrafo extends Grafo {}
 
 export class CadenaFIARedSemantica extends CadenaFIASimbolica {
-
-    entidades: IGrafo[] = [];
 
     modelo = new RedSemantica();
     nombre = i18.APPS.CADENA.SIMBOLICA.RED.NOMBRE;
@@ -30,29 +26,86 @@ export class CadenaFIARedSemantica extends CadenaFIASimbolica {
 
         console.log(agentMessage(this.nombre, i18.APPS.CADENA.SIMBOLICA.SIMULATION_START));
 
-        this.cargaRed();
+        await this.cargaRed();
 
         console.log(
             agentMessage(this.nombre, `${i18.APPS.CADENA.SIMULATION_BODY}:${this.imprimir()}`)
         );
 
+        await this.probar();
+
         return `${i18.APPS.CADENA.SIMBOLICA.SIMULATION_END}`;
     }
 
-    cargaRed() {
+    async cargaRed() {
 
         const red = i18.APPS.CADENA.SIMBOLICA.DOMINIO;
-        this.modelo.cargar(red, this.entidades);
+        this.modelo.cargar(red);
 
     }
 
     imprimir(): string {
 
         let out = "";
-        this.entidades.forEach(e => {
+        this.modelo.entidades.forEach(e => {
             out += e.imprimir();
         })
         return out;
+    }
+
+    async probar(): Promise<void> {
+
+        const red = i18.APPS.CADENA.SIMBOLICA.DOMINIO;
+
+        /*
+
+            red.ENTIDADES.tarea
+            red.ENTIDADES.robot
+            red.ENTIDADES.objeto
+            red.ENTIDADES.propiedad
+            red.ENTIDADES.cadena
+            red.ENTIDADES.almacen
+
+            red.ARCOS.ESTRUCTURALES.INSTANCIA.cadena_1
+            red.ARCOS.ESTRUCTURALES.INSTANCIA.robot_1
+            red.ARCOS.ESTRUCTURALES.INSTANCIA.objeto_1
+            red.ARCOS.ESTRUCTURALES.INSTANCIA.almacen_1
+
+            red.ARCOS.ESTRUCTURALES.SUBCLASE.criptoselladora
+
+        */
+
+        const casos = [
+            {
+                instancia: {
+                    robot_1: "robot"
+                }
+            },
+            {
+                subclase: {
+                    robot_1: "criptoselladora"
+                }
+            },
+            {
+                parte: {
+                    propiedad_cripta: "objeto_1"
+                }
+            },
+            {
+                tarea_cadena_robot_objeto: {
+                    encadenar : {
+                        tarea: "tarea_1",
+                        cadena: "cadena_1",
+                        robot: "robot_1",
+                        objeto: "objeto_1",
+                        almacen: "almacen_1"
+                    }
+                }
+            }
+        ];
+
+        await this.modelo.probar(casos);
+
     }
 }
 

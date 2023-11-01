@@ -1,86 +1,31 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.RedSemantica = exports.ReglaRed = exports.Grafo = exports.Arcos = exports.ArcoEstructural = exports.ArcoDescriptivo = exports.EtiquetaDescriptiva = exports.EtiquetaEstructural = exports.RelacionDescriptiva = exports.RelacionEstructural = exports.Entidad = void 0;
-const paradigma_1 = require("../inferencia/relacion/paradigma");
-const paradigma_2 = require("../paradigma");
-const cadena_fia_red_semantica_1 = require("../../../../../aplicaciones/cadena/simbolica/formal/cadena-fia-red-semantica");
-const labels_1 = require("../../../../../i18/labels");
-const thread_1 = require("../../../../../thread");
-const traductor_1 = require("../../../../../i18/traductor");
-class Entidad {
-    constructor() {
-        this.nombre = "entidad";
-        this.valor = "entidad";
+exports.RedSemantica = exports.ReglaRed = void 0;
+const paradigma_1 = require("../../../../paradigma");
+const paradigma_2 = require("../../inferencia/relacion/paradigma");
+const paradigma_3 = require("../../paradigma");
+const cadena_fia_red_semantica_1 = require("../../../../../../aplicaciones/cadena/simbolica/formal/cadena-fia-red-semantica");
+const labels_1 = require("../../../../../../i18/labels");
+const thread_1 = require("../../../../../../thread");
+const traductor_1 = require("../../../../../../i18/traductor");
+const arcos_1 = require("./arcos");
+const grafo_1 = require("./grafo");
+class ReglaRed extends paradigma_2.InferenciaRelacion {
+    configurar(g, inferencia) {
+        Object;
     }
-    imprimir() {
-        return this.nombre;
-    }
-}
-exports.Entidad = Entidad;
-class RelacionEstructural {
-    constructor() {
-        this.valor = "";
-    }
-}
-exports.RelacionEstructural = RelacionEstructural;
-class RelacionDescriptiva {
-}
-exports.RelacionDescriptiva = RelacionDescriptiva;
-class EtiquetaEstructural {
-    constructor() {
-        this.estado = new RelacionEstructural();
-    }
-}
-exports.EtiquetaEstructural = EtiquetaEstructural;
-class EtiquetaDescriptiva {
-    constructor() {
-        this.estado = new RelacionDescriptiva();
-    }
-}
-exports.EtiquetaDescriptiva = EtiquetaDescriptiva;
-class ArcoDescriptivo {
-    constructor() {
-        this.etiqueta = new EtiquetaDescriptiva();
-    }
-}
-exports.ArcoDescriptivo = ArcoDescriptivo;
-class ArcoEstructural {
-    constructor() {
-        this.etiqueta = new EtiquetaEstructural();
-    }
-}
-exports.ArcoEstructural = ArcoEstructural;
-class Arcos {
-    constructor() {
-        this.estado = [];
-    }
-}
-exports.Arcos = Arcos;
-class Grafo {
-    constructor() {
-        this.arcos = new Arcos();
-    }
-    imprimir() {
-        let out = "";
-        out += "\n\t - (grafo) -" + this.nombre + "; arcos";
-        this.arcos.estado.forEach(e => {
-            out += "\n\t\t - " + e.etiqueta.estado.nombre;
-        });
-        return out;
-    }
-}
-exports.Grafo = Grafo;
-class ReglaRed extends paradigma_1.InferenciaRelacion {
 }
 exports.ReglaRed = ReglaRed;
-class RedSemantica extends paradigma_2.Formal {
+class RedSemantica extends paradigma_3.Formal {
     constructor() {
         super(...arguments);
+        this.entidades = [];
         this.nombre = labels_1.i18.SIMBOLICA.SEMANTICA.NOMBRE;
-        this.base = new Grafo();
-        this.motor = new ReglaRed();
+        this.base = new grafo_1.Grafo();
+        this.motor = new paradigma_1.MotorInferencia();
     }
-    cargar(red, entidades) {
+    cargar(red) {
+        const entidades = this.entidades; // árbol a grafo
         /**
          * Añadir entidades maestras
          */
@@ -91,7 +36,7 @@ class RedSemantica extends paradigma_2.Formal {
             const entidad = Object.assign(new cadena_fia_red_semantica_1.CadenaGrafo(), {});
             entidad.nombre = valor;
             console.log((0, thread_1.agentMessage)(this.nombre, `${labels_1.i18.APPS.CADENA.SIMBOLICA.AGREGANDO_ENTIDADES_LABEL}${valor}`));
-            entidades.push(entidad);
+            this.entidades.push(entidad);
         });
         /**
          * Añadir entidades del arco "subclase-de"
@@ -111,16 +56,16 @@ class RedSemantica extends paradigma_2.Formal {
             }
             const padres = red.ARCOS.ESTRUCTURALES.SUBCLASE[clase_hija];
             Object.keys(padres).forEach(clase_padre => {
-                const grafoPadre = entidades.find(e => e.nombre === clase_padre);
+                const grafoPadre = this.entidades.find(e => e.nombre === clase_padre);
                 if (!grafoPadre) {
                     console.log("Error de integridad en CadenaFiaRedSemantica.ARCOS.ESTRUCTURALES.SUBCLASE", ", padre no encontrado para la hija:", clase_hija, ", padre:", clase_padre);
                     return;
                 }
-                const relacion = new RelacionEstructural();
+                const relacion = new arcos_1.RelacionEstructural();
                 relacion.nombre = etiqueta_texto.replace("clave", grafoHija.nombre).replace("valor", grafoPadre.nombre);
-                const etiqueta = new EtiquetaEstructural();
+                const etiqueta = new arcos_1.EtiquetaEstructural();
                 etiqueta.estado = relacion;
-                const arco = new ArcoEstructural();
+                const arco = new arcos_1.ArcoEstructural();
                 arco.destino = grafoPadre;
                 arco.etiqueta = etiqueta;
                 grafoHija.arcos.estado.push(arco);
@@ -153,11 +98,11 @@ class RedSemantica extends paradigma_2.Formal {
                     entidades.push(grafoHijo);
                     grafoHijo.nombre = clase_hijo;
                 }
-                const relacion = new RelacionEstructural();
+                const relacion = new arcos_1.RelacionEstructural();
                 relacion.nombre = etiqueta_texto.replace("clave", grafoPadre.nombre).replace("valor", grafoHijo.nombre);
-                const etiqueta = new EtiquetaEstructural();
+                const etiqueta = new arcos_1.EtiquetaEstructural();
                 etiqueta.estado = relacion;
-                const arco = new ArcoEstructural();
+                const arco = new arcos_1.ArcoEstructural();
                 arco.destino = grafoPadre;
                 arco.etiqueta = etiqueta;
                 grafoHijo.arcos.estado.push(arco);
@@ -190,11 +135,11 @@ class RedSemantica extends paradigma_2.Formal {
                     entidades.push(grafoPadre);
                     grafoPadre.nombre = clase_padre;
                 }
-                const relacion = new RelacionEstructural();
+                const relacion = new arcos_1.RelacionEstructural();
                 relacion.nombre = etiqueta_texto.replace("clave", grafoHijo.nombre).replace("valor", grafoPadre.nombre);
-                const etiqueta = new EtiquetaEstructural();
+                const etiqueta = new arcos_1.EtiquetaEstructural();
                 etiqueta.estado = relacion;
-                const arco = new ArcoEstructural();
+                const arco = new arcos_1.ArcoEstructural();
                 arco.destino = grafoPadre;
                 arco.etiqueta = etiqueta;
                 grafoHijo.arcos.estado.push(arco);
@@ -216,8 +161,13 @@ class RedSemantica extends paradigma_2.Formal {
             const partes = red.ARCOS.DESCRIPTIVOS[clase_padre];
             let parametros;
             Object.keys(partes).forEach(clase_hijo => {
+                if (clase_hijo === "parametros") {
+                    const partes = red.ARCOS.DESCRIPTIVOS[clase_padre];
+                    parametros = partes[clase_hijo];
+                    return;
+                }
                 if (!parametros) {
-                    console.log("ERROR> Simbolica.Formal.Sistema.Semantica.CargarArcosDescriptivos.Error en el fichero de traducción. El primer nodo debe ser  'parametros");
+                    console.log("ERROR> Simbolica.Formal.Sistema.Semantica.CargarArcosDescriptivos.Error en el fichero de traducción. El primer nodo debe ser  'parametros'", clase_hijo);
                     return;
                 }
                 const existing2 = entidades.find(e => e.nombre === clase_hijo);
@@ -229,17 +179,41 @@ class RedSemantica extends paradigma_2.Formal {
                     grafoHijo.nombre = clase_hijo;
                 }
                 const etiqueta_texto = partes[clase_hijo];
-                const relacion = new RelacionDescriptiva();
+                const relacion = new arcos_1.RelacionDescriptiva();
                 relacion.nombre = new traductor_1.Traductor().crearTextoAyuda(clase_hijo, parametros, etiqueta_texto);
                 ;
-                const etiqueta = new EtiquetaDescriptiva();
+                const etiqueta = new arcos_1.EtiquetaDescriptiva();
                 etiqueta.estado = relacion;
-                const arco = new ArcoDescriptivo();
+                const arco = new arcos_1.ArcoDescriptivo();
                 arco.destino = grafoPadre;
                 arco.etiqueta = etiqueta;
                 grafoHijo.arcos.estado.push(arco);
                 console.log((0, thread_1.agentMessage)(this.nombre, `${labels_1.i18.APPS.CADENA.SIMBOLICA.AGREGANDO_ARCOS_DESCRIPTIVOS_LABEL}${grafoHijo.nombre}/${grafoPadre.nombre}`));
             });
+        });
+    }
+    probar(casos) {
+        return new Promise((resolve, reject) => {
+            console.log((0, thread_1.agentMessage)(this.nombre, `${labels_1.i18.APPS.CADENA.TEST.PROBAR_START_LABEL}:${""}`));
+            casos.forEach((c, index) => {
+                console.log((0, thread_1.agentMessage)(this.nombre, `${labels_1.i18.APPS.CADENA.TEST.CASO.START_LABEL}:${index}`));
+                const regla = new ReglaRed();
+                const dominio = new paradigma_1.Dominio(c);
+                regla.configurar(this.base, dominio);
+                const inferencia = Object.keys(c);
+                console.log((0, thread_1.agentMessage)(this.nombre, `${labels_1.i18.APPS.CADENA.TEST.CASO.BUCLE.CREAR_REGLA_LABEL}:${index}:${inferencia}
+                     ${JSON.stringify(dominio.base)}
+                    `));
+                this.motor.reglas.push(regla);
+            });
+            this.motor.arrancar((info) => {
+                console.log((0, thread_1.agentMessage)(this.nombre, `${labels_1.i18.APPS.CADENA.TEST.CASO.BODY_LABEL}:${JSON.stringify(info)}`));
+            });
+            this.motor.trasDetenerse(() => {
+                console.log((0, thread_1.agentMessage)(this.nombre, `${labels_1.i18.APPS.CADENA.TEST.PROBAR_END_LABEL}:${""}`));
+                resolve("> forma.sistema.semantica.paradigma.RedSemantica.probar, finalizó con éxito");
+            });
+            setTimeout(() => reject("forma.sistema.semantica.paradigma.RedSemantica.probar, tiempo expirado!"), 5000);
         });
     }
 }
