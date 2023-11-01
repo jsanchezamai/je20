@@ -78,27 +78,27 @@ export class CadenaFIARedSemantica extends CadenaFIASimbolica {
         const casos = [
             {
                 instancia: {
-                    robot_1: "robot"
+                    robot_1: { robot: "robot" }
                 }
             },
             {
                 subclase: {
-                    robot_1: "criptoselladora"
+                    robot_1: { criptoselladora: "criptoselladora" }
                 }
             },
             {
                 parte: {
-                    propiedad_cripta: "objeto_1"
+                    propiedad_cripta: { objeto_1: "objeto_1" }
                 }
             },
             {
                 tarea_cadena_robot_objeto: {
                     encadenar : {
-                        tarea: "tarea_1",
-                        cadena: "cadena_1",
-                        robot: "robot_1",
-                        objeto: "objeto_1",
-                        almacen: "almacen_1"
+                        tarea_1: "tarea",
+                        cadena_1: "cadena",
+                        robot_1: "robot",
+                        objeto_1: "objeto",
+                        almacen_1: "almacen"
                     }
                 }
             }

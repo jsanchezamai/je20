@@ -36,16 +36,21 @@ export class InferenciaRelacion
 
         activar(): { parametros: IBaseConocimiento, contexto: IGrafo} {
             return {
-                parametros: this.dominio.base[this.claveDominio][this.claveEntrada],
+                parametros: this.dominio.base[this.claveDominio][this.claveEntrada].base,
                 contexto: this.dominio.base[this.claveDominio][this.claveContexto]
             }
         }
 
-        evaluar(): IInferencia {
+        async evaluar(): Promise<IInferencia> {
             return this;
         }
 
         imprimir(): string {
-            return JSON.stringify(Object.keys(this.dominio.base[this.claveDominio]).join(" - "), null, "\t");
+            return JSON.stringify(
+                Object.keys(
+                    this.dominio.base[this.claveDominio][this.claveEntrada].base).join(" - "),
+                    null,
+                    "\t"
+                );
         }
 }

@@ -15,15 +15,15 @@ class InferenciaRelacion extends paradigma_1.Inferencia {
     }
     activar() {
         return {
-            parametros: this.dominio.base[this.claveDominio][this.claveEntrada],
+            parametros: this.dominio.base[this.claveDominio][this.claveEntrada].base,
             contexto: this.dominio.base[this.claveDominio][this.claveContexto]
         };
     }
-    evaluar() {
+    async evaluar() {
         return this;
     }
     imprimir() {
-        return JSON.stringify(this.dominio.base[this.claveDominio], null, "\t");
+        return JSON.stringify(Object.keys(this.dominio.base[this.claveDominio][this.claveEntrada].base).join(" - "), null, "\t");
     }
 }
 exports.InferenciaRelacion = InferenciaRelacion;

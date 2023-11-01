@@ -24,7 +24,7 @@ import { IProblema, IRequisitos } from "./modelos/formal/inferencia/relacion/par
 
         configurar(b: IBaseConocimiento, parametros: IDominio): void;
 
-        evaluar: () => IInferencia;
+        evaluar: () => Promise<IInferencia>;
     }
 
     export interface IInferenciaConcepto extends IInferencia {};
@@ -46,9 +46,11 @@ import { IProblema, IRequisitos } from "./modelos/formal/inferencia/relacion/par
             this.dominio = d;
         }
 
-        evaluar(): IInferencia {
+        async evaluar(): Promise<IInferencia> {
             return this;
         }
+
+
 
     }
 

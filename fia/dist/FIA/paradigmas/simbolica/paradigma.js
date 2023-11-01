@@ -23,7 +23,7 @@ class Inferencia {
     configurar(b, d) {
         this.dominio = d;
     }
-    evaluar() {
+    async evaluar() {
         return this;
     }
 }

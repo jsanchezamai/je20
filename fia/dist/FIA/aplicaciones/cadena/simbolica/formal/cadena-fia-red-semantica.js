@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CadenaFIARedSemantica = exports.CadenaGrafo = void 0;
 const labels_1 = require("../../../../i18/labels");
 const grafo_1 = require("../../../../paradigmas/simbolica/modelos/formal/sistema/semantica/grafo");
-const paradigma_1 = require("../../../../paradigmas/simbolica/modelos/formal/sistema/semantica/paradigma");
+const red_1 = require("../../../../paradigmas/simbolica/modelos/formal/sistema/semantica/red");
 const thread_1 = require("../../../../thread");
 const cadena_fia_simbolica_1 = require("../cadena-fia-simbolica");
 class CadenaGrafo extends grafo_1.Grafo {
@@ -12,7 +12,7 @@ exports.CadenaGrafo = CadenaGrafo;
 class CadenaFIARedSemantica extends cadena_fia_simbolica_1.CadenaFIASimbolica {
     constructor() {
         super();
-        this.modelo = new paradigma_1.RedSemantica();
+        this.modelo = new red_1.RedSemantica();
         this.nombre = labels_1.i18.APPS.CADENA.SIMBOLICA.RED.NOMBRE;
         const grafo = new CadenaGrafo();
         this.modelo.nombre = labels_1.i18.APPS.CADENA.SIMBOLICA.SEMANTICA.NOMBRE;
@@ -58,27 +58,27 @@ class CadenaFIARedSemantica extends cadena_fia_simbolica_1.CadenaFIASimbolica {
         const casos = [
             {
                 instancia: {
-                    robot_1: "robot"
+                    robot_1: { robot: "robot" }
                 }
             },
             {
                 subclase: {
-                    robot_1: "criptoselladora"
+                    robot_1: { criptoselladora: "criptoselladora" }
                 }
             },
             {
                 parte: {
-                    propiedad_cripta: "objeto_1"
+                    propiedad_cripta: { objeto_1: "objeto_1" }
                 }
             },
             {
                 tarea_cadena_robot_objeto: {
                     encadenar: {
-                        tarea: "tarea_1",
-                        cadena: "cadena_1",
-                        robot: "robot_1",
-                        objeto: "objeto_1",
-                        almacen: "almacen_1"
+                        tarea_1: "tarea",
+                        cadena_1: "cadena",
+                        robot_1: "robot",
+                        objeto_1: "objeto",
+                        almacen_1: "almacen"
                     }
                 }
             }

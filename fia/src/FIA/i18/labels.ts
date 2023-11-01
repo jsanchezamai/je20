@@ -57,7 +57,15 @@ export const i18 = {
     SIMBOLICA: {
         SEMANTICA: {
             NOMBRE: "red-semantica",
-            REGLA: "regla-de-red-semantica"
+            REGLA: "regla.de.red.semantica",
+            INFERENCIA: "\n\t - Tipo de inferencia: <clave> \n\t - agentes: <agentes>  \n\t - sujetos: <sujetos>  \n\t - Entidades: <entidades>",
+            INFERENCIA_NATURAL_LABEL: "¿Existe un camino que lleve desde <agente> hasta <sujeto> pasando por <arco>",
+
+            BUSQUEDA: {
+                INICIO: "\n\t\t - Inicio búsqueda por: ",
+                OPCION: "\n\t\t\t - Candidato: ",
+                COMPARANDO: "\n\t\t\t - Comparando entidad:  \n\t\t\t - ...con etiqueta: y valor",
+            }
         }
     },
 
@@ -119,7 +127,7 @@ export const i18 = {
                 NOMBRE: "cadena.simbolica",
 
                 SEMANTICA: {
-                    NOMBRE: "cadena.simbolica.semantica.red"
+                    NOMBRE: "cadena.simbolica.semantica.red",
                 },
 
                 SIMULATION_START: "Creando la red semántica...",
@@ -242,8 +250,6 @@ export const i18 = {
 
                     NOMBRE: "cadena.simbolica.red",
 
-                    RECEPCION_AFERENCIA_LABEL: "El mundo envía una aferencia. Voy a realizar la transición de estado.",
-                    ENVIO_EFERENCIA_LABEL: "¡Hecho! Le devuelvo el nuevo estado al mundo con una eferencia.",
                 }
             },
 
