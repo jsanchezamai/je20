@@ -2,7 +2,7 @@ import { GenesisBlock } from "../../genesis-block";
 import { i18 } from "../../i18/labels";
 import { agentMessage } from "../../thread";
 import { App } from "../paradigma";
-import { CadenaRedSemantica } from "./simbolica/formal/cadena-fia-red-semantica";
+import { CadenaFIARedSemantica } from "./simbolica/formal/cadena-fia-red-semantica";
 import { CadenaFIASituada } from "./situada/cadena-fia-situada";
 
 export class CadenaApp extends App {
@@ -21,16 +21,16 @@ export class CadenaApp extends App {
         /**
          *
          */
-        this.situada = new CadenaFIASituada();
-        this.simbolica = new CadenaRedSemantica();
+        // this.situada = new CadenaFIASituada();
+        this.simbolica = new CadenaFIARedSemantica();
 
-        await Promise.all(
+        const salidas = await Promise.all(
             [
-                this.situada.instanciar(),
+                // this.situada.instanciar(),
                 this.simbolica.instanciar()
             ]
         );
 
-        return `${i18.APPS.CADENA.SIMULATION_END}`;
+        return `${salidas.join("\n\t - ")}${i18.APPS.CADENA.SIMULATION_END}`;
     }
 }

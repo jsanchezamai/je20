@@ -8,7 +8,9 @@ import { IProblema, IRequisitos } from "./modelos/formal/inferencia/relacion/par
     /**
      * INFERENCIA
      */
-    export interface IDominio {}
+    export interface IDominio {
+
+    }
 
     export interface IInferencia {
         dominio: IDominio;
@@ -78,7 +80,7 @@ import { IProblema, IRequisitos } from "./modelos/formal/inferencia/relacion/par
     }
 
     export interface IModeloRepresentacional {
-
+        nombre: string;
     }
 
     /**

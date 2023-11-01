@@ -45,7 +45,7 @@ class Automata {
             const aferencia = new EstadoT(m.modelo);
             this.estado.transicion(aferencia);
             this.mundo.modelo = this.estado.comoModelo();
-            console.log((0, thread_1.agentMessage)(labels_1.i18.FIA_SITUADA_LABEL, labels_1.i18.SITUADA.AUTOMATA.ENVIO_EFERENCIA_LABEL));
+            console.log((0, thread_1.agentMessage)(this.nombre, labels_1.i18.SITUADA.AUTOMATA.ENVIO_EFERENCIA_LABEL));
             this.eferencia.next(this.mundo);
         });
         await this.mundo.ciclo();

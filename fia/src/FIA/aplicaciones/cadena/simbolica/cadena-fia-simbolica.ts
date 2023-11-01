@@ -1,7 +1,7 @@
 import { GenesisBlock } from "../../../genesis-block";
 import { i18 } from "../../../i18/labels";
 import { agentMessage } from "../../../thread";
-import { IModeloRepresentacional, iIASimbolica } from "../../../paradigmas/simbolica/paradigma";
+import { IModeloFormal, IModeloRepresentacional, iIASimbolica } from "../../../paradigmas/simbolica/paradigma";
 import { IMundo } from "../../../mundos/paradigma";
 import { ISolucion } from "../../../paradigmas/conexionista/paradigma";
 import { IProblema, IRequisitos } from "../../../paradigmas/simbolica/modelos/formal/inferencia/relacion/paradigma";
@@ -16,7 +16,7 @@ import { IProblema, IRequisitos } from "../../../paradigmas/simbolica/modelos/fo
 
         nombre = i18.APPS.CADENA.SIMBOLICA.NOMBRE;
 
-        modelo: IModeloRepresentacional;
+        modelo: IModeloFormal;
 
         analisis: (p: IProblema) => ISolucion[];
         sintesis: (r: IRequisitos) => ISolucion;

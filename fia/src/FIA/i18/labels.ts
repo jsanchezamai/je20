@@ -54,6 +54,12 @@ export const i18 = {
         }
     },
 
+    SIMBOLICA: {
+        SEMANTICA: {
+            NOMBRE: "red-semantica"
+        }
+    },
+
     MUNDO: {
         INICIO_LABEL: "¡Mundo iniciado!",
         FIN_LABEL: "¡Mundo acabado!",
@@ -95,9 +101,106 @@ export const i18 = {
 
                 NOMBRE: "cadena.simbolica",
 
-                SIMULATION_START: "Proceso SIMBOLICO no inicializado, y no participará en la simulación",
+                SEMANTICA: {
+                    NOMBRE: "cadena.simbolica.semantica.red"
+                },
+
+                SIMULATION_START: "Creando la red semántica...",
                 SIMULATION_BODY: "Modelo resultante",
                 SIMULATION_END: "¡Simulación finalizada!",
+
+                AGREGANDO_ENTIDADES_LABEL: "Agregando entidad: ",
+                AGREGANDO_SUBCLASES_LABEL: "Agregando subclase/clase: ",
+                AGREGANDO_PARTE_LABEL: "Agregando parte/clase: ",
+
+                DOMINIO: {
+                    CONCEPTOS: {
+
+                        tarea: "tarea",
+
+                    },
+                    ENTIDADES: {
+                        robot: "robot",
+                        objeto: "objeto",
+                        propiedad: "propiedad"
+                    },
+                    ARCOS: {
+                        DESCRIPTIVOS: {
+                            tarea_cadena_robot_objeto: {
+                                texto: "El robot <tarea> el <objeto> en la <cadena>",
+                                coger: "coge",
+                                devolver: "devuelve"
+                            },
+                            tarea_robot_objeto:  {
+                                texto: "El robot <tarea> el <objeto>",
+                                deshecha: "deshechar"
+                            },
+                            tarea_robot_objeto_propiedad:  {
+                                texto: "El robot <tarea> la <propiedad> en el <objeto>",
+                                operar: "opera"
+                            }
+                        },
+                        ESTRUCTURALES: {
+                            INSTANCIA: {
+                                texto: "<clave> es instancia de <valor>",
+                                robot_1: { criptoselladora: "criptoselladora"},
+                                robot_2: { criptoselladora: "criptoselladora"},
+                                robot_3: { parseadora: "parseadora"},
+                                robot_4: { parseadora: "parseadora"},
+
+                                objeto_1: { objeto_parseable: "objeto_parseable"},
+                                objeto_2: { objeto_criptosellable: "objeto_criptosellable"},
+                                objeto_3: { objeto_parseable: "objeto_parseable"},
+                                objeto_4: { objeto_compuesto: "objeto_compuesto"},
+
+                                propiedad_cripta: { propiedad: "propiedad"},
+                                propiedad_cadena: { propiedad: "propiedad"},
+                                propiedad_estado: { estado: "estado" }
+                            },
+                            PARTE: {
+                                texto: "<clave> tiene la parte: <valor>",
+                                robot: {
+                                    tarea_cadena_robot_objeto: "tarea",
+                                    tarea_robot_objeto: "tarea",
+                                    tarea_robot_objeto_propiedad: "tarea",
+                                },
+                                objeto: {
+                                    propiedad_estado: "propiedad"
+                                },
+                                objeto_criptosellable: {
+                                    propiedad_cripta: "propiedad"
+                                },
+                                objeto_parseable: {
+                                    propiedad_cadena: "propiedad"
+                                },
+                                objeto_compuesto: {
+                                    objeto_parseable: "objeto",
+                                    objeto_criptosellable: "objeto"
+                                }
+                            },
+                            SUBCLASE: {
+                                texto: "<clave> es subclase de <valor>",
+
+                                criptoselladora: { robot: "robot" },
+                                parseadora: { robot: "robot" },
+
+                                objeto_criptosellable: { objeto: "objeto" },
+                                objeto_parseable: { objeto: "objeto" },
+
+                                objeto_compuesto: { objeto: "objeto" }
+
+                            }
+                        }
+                    }
+                },
+
+                RED: {
+
+                    NOMBRE: "cadena.simbolica.red",
+
+                    RECEPCION_AFERENCIA_LABEL: "El mundo envía una aferencia. Voy a realizar la transición de estado.",
+                    ENVIO_EFERENCIA_LABEL: "¡Hecho! Le devuelvo el nuevo estado al mundo con una eferencia.",
+                }
             },
 
         }

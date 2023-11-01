@@ -5,7 +5,6 @@ const labels_1 = require("../../i18/labels");
 const thread_1 = require("../../thread");
 const paradigma_1 = require("../paradigma");
 const cadena_fia_red_semantica_1 = require("./simbolica/formal/cadena-fia-red-semantica");
-const cadena_fia_situada_1 = require("./situada/cadena-fia-situada");
 class CadenaApp extends paradigma_1.App {
     constructor() {
         super();
@@ -16,13 +15,13 @@ class CadenaApp extends paradigma_1.App {
         /**
          *
          */
-        this.situada = new cadena_fia_situada_1.CadenaFIASituada();
+        // this.situada = new CadenaFIASituada();
         this.simbolica = new cadena_fia_red_semantica_1.CadenaRedSemantica();
-        await Promise.all([
-            this.situada.instanciar(),
+        const salidas = await Promise.all([
+            // this.situada.instanciar(),
             this.simbolica.instanciar()
         ]);
-        return `${labels_1.i18.APPS.CADENA.SIMULATION_END}`;
+        return `${salidas.join("\n\t - ")}${labels_1.i18.APPS.CADENA.SIMULATION_END}`;
     }
 }
 exports.CadenaApp = CadenaApp;
