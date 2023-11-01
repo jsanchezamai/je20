@@ -211,6 +211,41 @@ La red inicializa los nodos hoja y sus arcos principales:
     }
 
 ```
+
+Una vez cargada la red, puede usarse el [método probar del modelo](src/FIA/aplicaciones/cadena/simbolica/formal/cadena-fia-red-semantica.ts) inferencias con el formato de ejemplo de abajo. Las inferencias se lanzarán una a una.
+
+```ts
+const casos = [
+            {
+                instancia: {
+                    robot_1: "robot"
+                }
+            },
+            {
+                subclase: {
+                    robot_1: "criptoselladora"
+                }
+            },
+            {
+                parte: {
+                    propiedad_cripta: "objeto_1"
+                }
+            },
+            {
+                tarea_cadena_robot_objeto: {
+                    encadenar : {
+                        tarea: "tarea_1",
+                        cadena: "cadena_1",
+                        robot: "robot_1",
+                        objeto: "objeto_1",
+                        almacen: "almacen_1"
+                    }
+                }
+            }
+        ];
+
+        await this.modelo.probar(casos);
+```
 ## Log 
 
 ```
